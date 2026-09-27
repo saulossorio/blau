@@ -1,0 +1,13 @@
+/*
+  Button/Pill styles are defined in styles/global.css under section 12.
+  BEM classes:
+
+  .blau-btn            — ghost pill (border + text, no fill)
+  .blau-btn:hover      — blue border + text on hover
+  .blau-btn--primary   — blue border, circle-reveal fill on hover
+  .blau-btn svg        — inline icon (14x14)
+
+  Usage:
+    <button class="blau-btn">Label</button>
+    <a class="blau-btn blau-btn--primary" href="#">CTA</a>
+*/

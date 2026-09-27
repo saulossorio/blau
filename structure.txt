@@ -1,0 +1,50 @@
+blau-design-system/
+│
+├── index.html              # main page → full visual documentation + live examples + theme toggle
+├── README.md               # explanation + how to use the system
+│
+├── styles/                 # global styling system
+│   ├── variables.css       # ALL tokens in CSS (light + dark + high-contrast overrides)
+│   └── global.css          # base styles (reset, body, typography usage)
+│
+├── scripts/                # global JS (system-level behavior)
+│   ├── animations.js       # reusable animations (scroll, transitions, easing)
+│   ├── theme.js            # theme switching (light / dark / high-contrast)
+│   └── utils.js            # helpers (optional)
+│
+├── tokens/                 # structured tokens (for clarity / sharing)
+│   ├── core/               # raw values (palette, spacing, typography)
+│   │   ├── colors.json     # e.g. blue.500, gray.900
+│   │   ├── spacing.json    # spacing scale (4, 8, 16...)
+│   │   └── typography.json # font sizes, weights
+│   │
+│   ├── semantic/           # meaning (USED by components)
+│   │   └── colors.json     # background, text, primary, success, error
+│   │
+│   └── themes/             # overrides of semantic tokens
+│       ├── light.json      # default theme
+│       ├── dark.json       # dark mode
+│       └── high-contrast.json  # accessibility theme (strong contrast)
+│
+├── components/             # reusable UI (copy-paste ready)
+│   ├── button/
+│   │   ├── button.html     # structure
+│   │   ├── button.css      # uses ONLY semantic tokens (no raw colors)
+│   │   └── button.js       # component-specific behavior (optional)
+│   │
+│   ├── input/              # same structure for each component
+│   └── card/
+│
+├── examples/               # REAL usage (not isolated components)
+│   ├── form.html           # full form (inputs + buttons working together)
+│   ├── dashboard.html      # layout + multiple components combined
+│   └── landing.html        # marketing / page-level example
+│
+├── docs/                   # optional extra documentation pages
+│   ├── foundations.html    # colors, spacing, typography explained
+│   ├── components.html     # overview of all components
+│   ├── patterns.html       # combined usage (flows, layouts)
+│   └── accessibility.html  # contrast, themes, usage rules
+│
+└── design/                 # design source of truth
+    └── figma-link.txt      # link to Figma file

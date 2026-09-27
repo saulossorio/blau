@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modal / Lightbox — Blau Components</title>
+  <link rel="stylesheet" href="../../styles/variables.css"/>
+  <link rel="stylesheet" href="../../styles/global.css"/>
+  <style>
+    body { padding: 3rem; max-width: 640px; margin: 0 auto; }
+    h1 { font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 1rem; }
+    p { font-size: .85rem; color: var(--mid); margin-bottom: 2rem; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <h1>Image Modal / Lightbox</h1>
+  <p>Click the button below to open the modal overlay. Press Escape or the close button to dismiss.</p>
+
+  <button class="blau-btn" onclick="document.getElementById('demoModal').classList.add('is-open')">
+    Open modal demo
+  </button>
+
+  <div class="blau-modal" id="demoModal" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="blau-modal__inner">
+      <div style="width:400px;height:280px;background:var(--bg-subtle);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:.85rem;color:var(--light);">Image placeholder</span>
+      </div>
+      <button class="blau-modal__close" onclick="document.getElementById('demoModal').classList.remove('is-open')" aria-label="Close">✕</button>
+      <button class="blau-carousel__btn blau-carousel__btn--prev" aria-label="Previous">‹</button>
+      <button class="blau-carousel__btn blau-carousel__btn--next" aria-label="Next">›</button>
+    </div>
+    <div class="blau-carousel__dots">
+      <button class="blau-carousel__dot is-active" aria-label="Image 1"></button>
+      <button class="blau-carousel__dot" aria-label="Image 2"></button>
+      <button class="blau-carousel__dot" aria-label="Image 3"></button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('demoModal').classList.remove('is-open');
+    });
+  </script>
+</body>
+</html>

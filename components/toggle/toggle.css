@@ -1,0 +1,22 @@
+/*
+  Toggle and A11y button styles are defined in styles/global.css
+  under sections 23 and 24.
+
+  BEM classes — Toggle:
+    .blau-toggle                          — flex container, cursor pointer
+    .blau-toggle__track                   — 32x18px rounded track
+    .blau-toggle__thumb                   — 14x14px circle, slides on checked
+    .blau-toggle[aria-checked="true"]     — active state (blue track, thumb right)
+    .blau-toggle__label                   — text beside toggle
+
+  BEM classes — Accessibility button:
+    .blau-a11y-btn                        — pill-shaped button (border, no fill)
+    .blau-a11y-btn:hover                  — blue border + text
+    .blau-a11y-btn--active                — blue tint background, blue border
+
+  JS API (scripts/theme.js):
+    blauTheme.toggleDark()
+    blauTheme.toggleHighContrast()
+    blauTheme.isDark()
+    blauTheme.isHighContrast()
+*/

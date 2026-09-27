@@ -1,0 +1,26 @@
+{
+  "$description": "Semantic color tokens — mapped from core/colors.json. These are what components should reference.",
+  "background": {
+    "default":  "var(--bg)",
+    "subtle":   "var(--bg-subtle)",
+    "tag":      "var(--tag-bg)",
+    "tag-hover":"var(--tag-bg-hover)"
+  },
+  "text": {
+    "primary":   "var(--text)",
+    "secondary": "var(--mid)",
+    "tertiary":  "var(--light)"
+  },
+  "border": {
+    "default": "var(--border)",
+    "hover":   "var(--border-hover)"
+  },
+  "accent": {
+    "primary":  "var(--blue)",
+    "hover":    "var(--blue-hover)",
+    "tint":     "var(--blue-tint)"
+  },
+  "surface": {
+    "white": "var(--white)"
+  }
+}

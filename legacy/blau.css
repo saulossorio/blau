@@ -1,0 +1,646 @@
+/* ============================================================
+   BLAU.CSS — Design System documentation page
+   Only styles specific to blau/index.html.
+   Component styles (tokens, classes being documented) always
+   come from ../style.css — never duplicated here.
+
+   HOW THIS FILE IS ORGANISED:
+   1. Page chrome       — .ds-main, .ds-page-header, sections
+   2. Color swatches    — .ds-token-grid, .ds-swatch-*
+   3. Demo boxes        — .ds-demo, .ds-demo-preview, .ds-demo-meta
+   4. Spacing bars      — .ds-spacing-row
+   5. Typography scale  — .ds-type-row
+   6. Atomic design     — .ds-atomic-layer
+   7. Motion demos      — .ds-motion-*
+   8. Accessibility     — .ds-a11y-*
+   9. Sidebar chrome    — .ds-sidebar-top, .ds-sidebar-back, .ds-version
+  10. Mobile header/nav — .ds-mob-header, .ds-mob-burger, .ds-mob-nav
+  11. Footer            — .ds-footer
+  12. Shared label tag  — .label-tag (also used in demo HTML)
+  13. Responsive
+   ============================================================ */
+
+
+/* ── 1. PAGE CHROME ──────────────────────────────────────── */
+
+.ds-main {
+  margin-left: var(--sw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ds-page-header {
+  width: 100%;
+  max-width: 960px;
+  padding: 5rem 5rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* "DESIGN SYSTEM" badge at the top of the page */
+.ds-page-tag {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--blue-tint);   /* replaces hardcoded rgba(0,113,197,.08) */
+  color: var(--blue);
+  padding: .18rem .5rem;
+  border-radius: 3px;
+  margin-bottom: .85rem;
+}
+
+.ds-page-title {
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: .85rem;
+}
+
+.ds-page-desc {
+  font-size: .88rem;
+  color: var(--mid);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+.ds-page-desc code {
+  font-size: .8rem;
+  background: var(--bg-subtle);
+  padding: .1rem .35rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.ds-section {
+  width: 100%;
+  max-width: 960px;
+  padding: 3.5rem 5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ds-section:last-of-type { border-bottom: none; }
+
+.ds-section-title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .35rem;
+}
+
+.ds-section-desc {
+  font-size: .82rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.ds-section-desc code {
+  font-size: .78rem;
+  background: var(--bg-subtle);
+  padding: .1rem .3rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.ds-subsection { margin-top: 2rem; }
+
+.ds-subsection-title {
+  font-size: .63rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--light);
+  font-family: var(--font);
+  margin-bottom: 1rem;
+}
+
+
+/* ── 2. COLOR SWATCHES ───────────────────────────────────── */
+
+.ds-token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: .65rem;
+}
+
+.ds-swatch {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ds-swatch-color  { height: 46px; }
+
+.ds-swatch-label  { padding: .45rem .6rem; background: var(--bg); }
+
+.ds-swatch-name   { font-size: .7rem; font-weight: 600; color: var(--text); display: block; }
+
+.ds-swatch-var    {
+  font-size: .6rem;
+  color: var(--light);
+  display: block;
+  margin-top: .1rem;
+  font-family: monospace;
+}
+
+.ds-swatch-hex    { font-size: .6rem; color: var(--mid); display: block; font-family: monospace; }
+
+
+/* ── 3. DEMO BOXES ───────────────────────────────────────── */
+
+.ds-demo {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-demo:last-child { margin-bottom: 0; }
+
+.ds-demo-preview {
+  padding: 2.5rem 2rem;
+  background: var(--bg);
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex: 1;
+}
+
+.ds-demo-preview--col   { flex-direction: column; align-items: flex-start; }
+.ds-demo-preview--full  { background: var(--bg); }
+
+.ds-demo-meta {
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--border);
+  padding: .7rem 1.25rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.ds-demo-name  { font-size: .75rem; font-weight: 600; color: var(--text); margin-bottom: .15rem; }
+.ds-demo-desc  { font-size: .7rem; color: var(--mid); line-height: 1.6; }
+
+.ds-class-tag {
+  display: inline-block;
+  font-size: .6rem;
+  font-family: monospace;
+  background: var(--border);
+  color: var(--mid);
+  padding: .12rem .4rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.ds-tags { display: flex; flex-wrap: wrap; gap: .3rem; flex-shrink: 0; }
+
+.ds-ic {
+  font-size: .75rem;
+  background: var(--bg-subtle);
+  padding: .1rem .3rem;
+  border-radius: 3px;
+  font-family: monospace;
+  color: var(--mid);
+}
+
+/* Two-column demo layout */
+.ds-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.ds-two-col > .ds-demo { height: 100%; }
+
+
+/* ── 4. SPACING BARS ─────────────────────────────────────── */
+
+.ds-spacing-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ds-spacing-row:last-child { border-bottom: none; }
+
+/* Blue tint bar — uses specific documentation opacity values */
+.ds-spacing-bar {
+  background: rgba(0, 113, 197, .1);
+  border: 1px solid rgba(0, 113, 197, .22);
+  border-radius: 2px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.ds-spacing-label { font-size: .73rem; font-weight: 600; color: var(--text); min-width: 130px; }
+.ds-spacing-value { font-size: .68rem; color: var(--light); font-family: monospace; }
+
+
+/* ── 5. TYPOGRAPHY SCALE ─────────────────────────────────── */
+
+.ds-type-scale { display: flex; flex-direction: column; }
+
+.ds-type-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 100px;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ds-type-row:last-child { border-bottom: none; }
+
+.ds-type-meta  { display: flex; flex-direction: column; gap: .2rem; }
+.ds-type-token { font-size: .6rem; color: var(--blue); font-family: monospace; }
+.ds-type-spec  { font-size: .6rem; color: var(--light); line-height: 1.5; }
+.ds-type-ratio { font-size: .6rem; color: var(--mid); font-family: monospace; text-align: right; }
+
+
+/* ── 6. ATOMIC DESIGN ────────────────────────────────────── */
+
+.ds-atomic-layer {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.ds-atomic-layer:last-child { margin-bottom: 0; }
+
+.ds-atomic-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .85rem 1.25rem;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.ds-atomic-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: .6rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ds-atomic-title { font-size: .8rem; font-weight: 600; color: var(--text); }
+.ds-atomic-desc  { font-size: .7rem; color: var(--mid); margin-left: auto; }
+
+.ds-atomic-body {
+  padding: 1.1rem 1.5rem;
+  background: var(--bg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+}
+
+.ds-atom-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .68rem;
+  color: var(--mid);
+  padding: .28rem .65rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--bg);
+}
+
+.ds-atom-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+
+/* ── 7. MOTION DEMOS ─────────────────────────────────────── */
+
+.ds-motion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.ds-motion-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ds-motion-stage {
+  min-height: 160px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-motion-trigger {
+  position: absolute;
+  bottom: .65rem;
+  right: .85rem;
+  font-size: .58rem;
+  color: var(--border);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  font-family: var(--font);
+}
+
+.ds-motion-label {
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--border);
+  padding: .6rem 1rem;
+}
+
+.ds-motion-name { font-size: .73rem; font-weight: 600; color: var(--text); margin-bottom: .15rem; }
+.ds-motion-spec { font-size: .65rem; color: var(--mid); font-family: monospace; line-height: 1.5; }
+
+/* Motion demo @keyframes — defined here, never in style.css */
+@keyframes ds-fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ds-growLine {
+  from { width: 0; opacity: 0; }
+  to   { width: 100%; opacity: 1; }
+}
+
+@keyframes ds-dotPop {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+
+/* ── 8. ACCESSIBILITY ────────────────────────────────────── */
+
+.ds-a11y-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .85rem;
+}
+
+.ds-a11y-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg);
+}
+
+/* .label-tag is also used outside the a11y section — defined in section 12 */
+.ds-a11y-tag {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--blue-tint);   /* replaces hardcoded rgba(0,113,197,.08) */
+  color: var(--blue);
+  padding: .18rem .5rem;
+  border-radius: 3px;
+  margin-bottom: .5rem;
+}
+
+.ds-a11y-title { font-size: .8rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; }
+
+.ds-a11y-body  { font-size: .73rem; color: var(--mid); line-height: 1.7; }
+
+.ds-a11y-body code {
+  font-size: .68rem;
+  background: var(--bg-subtle);
+  padding: .1rem .28rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+
+/* ── 9. SIDEBAR CHROME ───────────────────────────────────── */
+
+/* Sidebar top area: Blau branding (dot + name + role + version) */
+.ds-sidebar-top {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .35rem;
+  padding-bottom: 1.25rem;
+}
+
+/* Override dot animation — purely decorative brand mark here */
+.ds-sidebar-top .brand-dot {
+  animation: none;
+  margin-bottom: .2rem;
+}
+
+/* Override sidebar-name and sidebar-role sizing for Blau */
+.ds-sidebar-top .sidebar-name { line-height: 1.1; font-size: 1rem; }
+.ds-sidebar-top .sidebar-role { padding-left: 0; font-size: .7rem; }
+
+/* Version badge: v1.0 */
+.ds-version {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  background: var(--blue-tint);   /* replaces hardcoded rgba(0,113,197,.08) */
+  color: var(--blue);
+  padding: .15rem .4rem;
+  border-radius: 3px;
+  margin-top: .2rem;
+}
+
+/* Back link at the bottom of the sidebar */
+.ds-sidebar-back {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .75rem;
+  color: var(--light);
+  padding: .4rem 1rem;
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+  margin: -.4rem .75rem .75rem;
+  text-decoration: none;
+  /* Pushes link to the bottom of the flex sidebar */
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.ds-sidebar-back:hover { color: var(--text); background: var(--bg-subtle); }
+
+
+/* ── 10. MOBILE HEADER + NAV ─────────────────────────────── */
+
+.ds-mob-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 60;
+}
+
+.ds-mob-brand {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.ds-mob-brand:hover .ds-mob-name { color: var(--blue); }
+
+.ds-mob-name {
+  font-family: var(--font-title);
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.ds-mob-burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: transform .4s cubic-bezier(.22,.61,.36,1);
+}
+
+.ds-mob-burger span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .35s cubic-bezier(.22,.61,.36,1),
+              opacity   .25s ease,
+              width     .25s ease;
+  transform-origin: center;
+}
+
+.ds-mob-burger.open { transform: rotate(180deg); }
+.ds-mob-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.ds-mob-burger.open span:nth-child(2) { width: 0; opacity: 0; }
+.ds-mob-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.ds-mob-nav {
+  display: none;
+  position: fixed;
+  top: var(--header-h); left: 0; right: 0; bottom: 0;
+  background: var(--white);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  z-index: 55;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.ds-mob-nav.open { opacity: 1; pointer-events: auto; }
+
+.ds-mob-nav a {
+  font-size: 1rem;
+  color: var(--mid);
+  cursor: pointer;
+  text-decoration: none;
+  padding: .4rem 1rem;
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+}
+
+.ds-mob-nav a:hover { color: var(--blue); background: var(--blue-tint); }
+
+/* Back-to-Digital-Products link inside mobile nav */
+.ds-mob-back-link {
+  margin-top: 1rem;
+  color: var(--blue);
+}
+
+
+/* ── 11. FOOTER ──────────────────────────────────────────── */
+
+.ds-footer {
+  width: 100%;
+  max-width: 960px;
+  padding: 1.75rem 5rem;
+  border-top: 1px solid var(--border);
+}
+
+.ds-footer p {
+  font-size: .7rem;
+  color: var(--light);
+}
+
+
+/* ── 12. LABEL TAG ───────────────────────────────────────── */
+/* Reusable uppercase blue label with tint background.
+   Used throughout the DS page for state labels and card headers. */
+.label-tag {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--blue-tint);   /* replaces hardcoded rgba(0,113,197,.08) */
+  color: var(--blue);
+  padding: .18rem .5rem;
+  border-radius: 3px;
+  margin-bottom: 0;
+}
+
+
+/* ── 13. RESPONSIVE ──────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .sidebar         { display: none; }
+  .ds-mob-header   { display: flex; }
+  .ds-mob-nav      { display: flex; }
+  .ds-main         { margin-left: 0; padding-top: var(--header-h); overflow-x: hidden; }
+  .ds-section      { padding: 2.5rem 1.5rem; overflow-x: hidden; }
+  .ds-page-header  { padding: 3.5rem 1.5rem 2rem; }
+  .ds-two-col      { grid-template-columns: 1fr; }
+  .ds-motion-grid  { grid-template-columns: 1fr; }
+  .ds-a11y-grid    { grid-template-columns: 1fr; }
+  .ds-type-row     { grid-template-columns: 1fr; gap: .5rem; }
+  .ds-type-ratio   { display: none; }
+  .ds-demo-preview { padding: 1.5rem 1rem; }
+  .ds-footer       { padding: 1.5rem 1.5rem; }
+}

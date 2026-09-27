@@ -1,0 +1,9 @@
+BLAU — Design Source of Truth
+==============================
+
+Figma file: (link to be added)
+
+Notes:
+- All design tokens in this file should match styles/variables.css
+- Component frames map to the components/ folder
+- Use the token names (e.g. --blue, --bg-subtle) not raw hex values

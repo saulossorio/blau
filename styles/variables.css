@@ -1,0 +1,110 @@
+/* ============================================================
+   BLAU — Design Tokens (CSS Custom Properties)
+   All theme variables live here: light (default), dark,
+   high-contrast, and dark-high-contrast.
+
+   Usage:
+     <link rel="stylesheet" href="styles/variables.css"/>
+   Then use var(--token-name) anywhere in your CSS.
+   ============================================================ */
+
+
+/* ── LIGHT THEME (default) ──────────────────────────────────── */
+:root {
+  /* Surface colors */
+  --white:        #ffffff;
+  --bg:           #ffffff;
+  --bg-subtle:    #f8f8f7;
+
+  /* Text colors */
+  --text:         #1a1a1a;
+  --mid:          #555555;
+  --light:        #999999;
+
+  /* Accent — primary blue */
+  --blue:         #0071C5;
+  --blue-hover:   #005da0;
+  --blue-tint:    rgba(0, 113, 197, .08);
+
+  /* Borders */
+  --border:       #e0e0e0;
+  --border-hover: #c8c8c4;
+
+  /* Tag backgrounds */
+  --tag-bg:       #f0f0ef;
+  --tag-bg-hover: #e8e8e6;
+
+  /* Typography */
+  --font:         'Open Sans', sans-serif;
+  --font-title:   'Raleway', sans-serif;
+
+  /* Layout */
+  --sw:           230px;   /* sidebar width */
+  --header-h:     56px;    /* mobile header height */
+}
+
+
+/* ── DARK THEME ─────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --white:        #111111;
+  --bg:           #111111;
+  --bg-subtle:    #1a1a1a;
+
+  --text:         #f0f0ef;
+  --mid:          #aaaaaa;
+  --light:        #666666;
+
+  --blue:         #3a9ee4;
+  --blue-hover:   #2b8fd0;
+  --blue-tint:    rgba(58, 158, 228, .12);
+
+  --border:       #2a2a2a;
+  --border-hover: #3a3a3a;
+
+  --tag-bg:       #1e1e1e;
+  --tag-bg-hover: #252525;
+}
+
+
+/* ── HIGH-CONTRAST THEME (light) ───────────────────────────── */
+[data-theme="high-contrast"] {
+  --white:        #ffffff;
+  --bg:           #ffffff;
+  --bg-subtle:    #f0f0f0;
+
+  --text:         #000000;
+  --mid:          #1a1a1a;
+  --light:        #333333;
+
+  --blue:         #0047ab;
+  --blue-hover:   #003380;
+  --blue-tint:    rgba(0, 71, 171, .12);
+
+  --border:       #000000;
+  --border-hover: #000000;
+
+  --tag-bg:       #e8e8e8;
+  --tag-bg-hover: #d8d8d8;
+}
+
+
+/* ── DARK HIGH-CONTRAST THEME ──────────────────────────────── */
+[data-theme="dark-high-contrast"] {
+  --white:        #000000;
+  --bg:           #000000;
+  --bg-subtle:    #0a0a0a;
+
+  --text:         #ffffff;
+  --mid:          #e0e0e0;
+  --light:        #bbbbbb;
+
+  --blue:         #5bb8ff;
+  --blue-hover:   #8acfff;
+  --blue-tint:    rgba(91, 184, 255, .15);
+
+  --border:       #ffffff;
+  --border-hover: #ffffff;
+
+  --tag-bg:       #1a1a1a;
+  --tag-bg-hover: #252525;
+}

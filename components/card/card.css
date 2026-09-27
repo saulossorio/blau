@@ -1,0 +1,16 @@
+/*
+  Card styles are defined in styles/global.css under section 21.
+  BEM classes:
+
+  .blau-card              — base card (border, radius, flex column)
+  .blau-card::after       — circle-reveal fill layer (blue, clip-path)
+  .blau-card--featured    — visually identical but semantically distinct
+  .blau-card--soon        — dimmed, no hover animation
+  .blau-card__header      — flex row with title + arrow
+  .blau-card__title       — card heading (Raleway, 1.05rem)
+  .blau-card__arrow       — right arrow, translateX on hover
+  .blau-card__desc        — description text
+  .blau-card__badge       — "Coming soon" label
+
+  Container: .blau-categories (grid, 4 cols → 2 cols → 1 col)
+*/

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toggle &amp; A11y Button — Blau Components</title>
+  <link rel="stylesheet" href="../../styles/variables.css"/>
+  <link rel="stylesheet" href="../../styles/global.css"/>
+  <style>
+    body { padding: 3rem; max-width: 640px; margin: 0 auto; }
+    section { margin-bottom: 2.5rem; }
+    h1 { font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 2rem; }
+    h2 { font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--light); margin-bottom: 1rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Toggle &amp; Accessibility Button</h1>
+
+  <section>
+    <h2>Dark mode toggle</h2>
+    <div class="row">
+      <div class="blau-toggle" onclick="blauTheme.toggleDark()" role="switch" aria-checked="false" aria-label="Dark mode" tabindex="0">
+        <span class="blau-toggle__track"><span class="blau-toggle__thumb"></span></span>
+        <span class="blau-toggle__label">Dark mode</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>High-contrast button</h2>
+    <div class="row">
+      <button class="blau-a11y-btn" onclick="blauTheme.toggleHighContrast()" aria-pressed="false" aria-label="Toggle high contrast">
+        High contrast
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <h2>States preview</h2>
+    <div class="row">
+      <div class="blau-toggle" role="switch" aria-checked="false" aria-label="Off state" tabindex="0">
+        <span class="blau-toggle__track"><span class="blau-toggle__thumb"></span></span>
+        <span class="blau-toggle__label">Off</span>
+      </div>
+      <div class="blau-toggle" role="switch" aria-checked="true" aria-label="On state" tabindex="0">
+        <span class="blau-toggle__track"><span class="blau-toggle__thumb"></span></span>
+        <span class="blau-toggle__label">On</span>
+      </div>
+    </div>
+    <div class="row" style="margin-top:1rem;">
+      <button class="blau-a11y-btn" aria-pressed="false">Inactive</button>
+      <button class="blau-a11y-btn blau-a11y-btn--active" aria-pressed="true">Active</button>
+    </div>
+  </section>
+
+  <script src="../../scripts/theme.js"></script>
+</body>
+</html>

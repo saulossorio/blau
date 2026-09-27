@@ -1,0 +1,22 @@
+{
+  "$description": "Raw color palette — do not use directly in components. Reference semantic/colors.json instead.",
+  "blue": {
+    "DEFAULT":  "#0071C5",
+    "hover":    "#005da0",
+    "tint":     "rgba(0, 113, 197, 0.08)",
+    "rage":     "#EF5958"
+  },
+  "gray": {
+    "950":  "#1a1a1a",
+    "700":  "#555555",
+    "500":  "#999999",
+    "100":  "#f8f8f7",
+    "50":   "#ffffff"
+  },
+  "neutral": {
+    "border":         "#e0e0e0",
+    "border-hover":   "#c8c8c4",
+    "tag":            "#f0f0ef",
+    "tag-hover":      "#e8e8e6"
+  }
+}

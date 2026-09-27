@@ -1,0 +1,676 @@
+/* ============================================================
+   BLAU — Documentation Chrome
+   Styles specific to the design system documentation page (index.html).
+   All .blau-docs-* classes live here.
+
+   Component styles (tokens, classes being documented) always
+   come from styles/global.css — never duplicated here.
+
+   Requires: styles/variables.css, styles/global.css
+
+   TABLE OF CONTENTS
+   1.  Page chrome       — .blau-docs, .blau-docs__header, sections
+   2.  Color swatches    — .blau-docs-swatches, .blau-docs-swatch__*
+   3.  Demo boxes        — .blau-docs-demo, .blau-docs-demo__preview, .blau-docs-demo__meta
+   4.  Spacing bars      — .blau-docs-spacing
+   5.  Typography scale  — .blau-docs-type
+   6.  Atomic design     — .blau-docs-atomic
+   7.  Motion demos      — .blau-docs-motion__*
+   8.  Accessibility     — .blau-docs-a11y__*
+   9.  Sidebar chrome    — .blau-docs-sidebar, .blau-docs-sidebar__back, .blau-docs-version
+   10. Mobile header/nav — .blau-docs-mobile-header, .blau-docs-burger, .blau-docs-mobile-nav
+   11. Footer            — .blau-docs-footer
+   12. Shared label tag  — .blau-tag
+   13. Responsive
+   ============================================================ */
+
+
+/* ── 1. PAGE CHROME ──────────────────────────────────────── */
+
+.blau-docs {
+  margin-left: var(--sw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blau-docs__header {
+  width: 100%;
+  max-width: 960px;
+  padding: 5rem 5rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.blau-docs__badge {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--blue-tint);
+  color: var(--blue);
+  padding: .18rem .5rem;
+  border-radius: 3px;
+  margin-bottom: .85rem;
+}
+
+.blau-docs__title {
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: .85rem;
+}
+
+.blau-docs__desc {
+  font-size: .88rem;
+  color: var(--mid);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+.blau-docs__desc code {
+  font-size: .8rem;
+  background: var(--bg-subtle);
+  padding: .1rem .35rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.blau-docs-section {
+  width: 100%;
+  max-width: 960px;
+  padding: 3.5rem 5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.blau-docs-section:last-of-type { border-bottom: none; }
+
+.blau-docs-section__title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .35rem;
+}
+
+.blau-docs-section__desc {
+  font-size: .82rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.blau-docs-section__desc code {
+  font-size: .78rem;
+  background: var(--bg-subtle);
+  padding: .1rem .3rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.blau-docs-subsection { margin-top: 2rem; }
+
+.blau-docs-subsection__title {
+  font-size: .63rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--light);
+  font-family: var(--font);
+  margin-bottom: 1rem;
+}
+
+
+/* ── 2. COLOR SWATCHES ───────────────────────────────────── */
+
+.blau-docs-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: .65rem;
+}
+
+.blau-docs-swatch {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.blau-docs-swatch__color  { height: 46px; }
+
+.blau-docs-swatch__label  { padding: .45rem .6rem; background: var(--bg); }
+
+.blau-docs-swatch__name   { font-size: .7rem; font-weight: 600; color: var(--text); display: block; }
+
+.blau-docs-swatch__var    {
+  font-size: .6rem;
+  color: var(--light);
+  display: block;
+  margin-top: .1rem;
+  font-family: monospace;
+}
+
+.blau-docs-swatch__hex    { font-size: .6rem; color: var(--mid); display: block; font-family: monospace; }
+
+
+/* ── 3. DEMO BOXES ───────────────────────────────────────── */
+
+.blau-docs-demo {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.blau-docs-demo:last-child { margin-bottom: 0; }
+
+.blau-docs-demo__preview {
+  padding: 2.5rem 2rem;
+  background: var(--bg);
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex: 1;
+}
+
+.blau-docs-demo__preview--column   { flex-direction: column; align-items: flex-start; }
+.blau-docs-demo__preview--full  { background: var(--bg); }
+
+.blau-docs-demo__meta {
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--border);
+  padding: .7rem 1.25rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.blau-docs-demo__name  { font-size: .75rem; font-weight: 600; color: var(--text); margin-bottom: .15rem; }
+.blau-docs-demo__desc  { font-size: .7rem; color: var(--mid); line-height: 1.6; }
+
+.blau-docs-class {
+  display: inline-block;
+  font-size: .6rem;
+  font-family: monospace;
+  background: var(--border);
+  color: var(--mid);
+  padding: .12rem .4rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.blau-docs-tags { display: flex; flex-wrap: wrap; gap: .3rem; flex-shrink: 0; }
+
+.blau-docs-code {
+  font-size: .75rem;
+  background: var(--bg-subtle);
+  padding: .1rem .3rem;
+  border-radius: 3px;
+  font-family: monospace;
+  color: var(--mid);
+}
+
+.blau-docs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.blau-docs-grid > .blau-docs-demo { height: 100%; }
+
+
+/* ── 4. SPACING BARS ─────────────────────────────────────── */
+
+.blau-docs-spacing {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.blau-docs-spacing:last-child { border-bottom: none; }
+
+.blau-docs-spacing__bar {
+  background: rgba(0, 113, 197, .1);
+  border: 1px solid rgba(0, 113, 197, .22);
+  border-radius: 2px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.blau-docs-spacing__label { font-size: .73rem; font-weight: 600; color: var(--text); min-width: 130px; }
+.blau-docs-spacing__value { font-size: .68rem; color: var(--light); font-family: monospace; }
+
+
+/* ── 5. TYPOGRAPHY SCALE ─────────────────────────────────── */
+
+.blau-docs-type-scale { display: flex; flex-direction: column; }
+
+.blau-docs-type {
+  display: grid;
+  grid-template-columns: 220px 1fr 100px;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.blau-docs-type:last-child { border-bottom: none; }
+
+.blau-docs-type__meta  { display: flex; flex-direction: column; gap: .2rem; }
+.blau-docs-type__token { font-size: .6rem; color: var(--blue); font-family: monospace; }
+.blau-docs-type__spec  { font-size: .6rem; color: var(--light); line-height: 1.5; }
+.blau-docs-type__ratio { font-size: .6rem; color: var(--mid); font-family: monospace; text-align: right; }
+
+
+/* ── 6. ATOMIC DESIGN ────────────────────────────────────── */
+
+.blau-docs-atomic {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.blau-docs-atomic:last-child { margin-bottom: 0; }
+
+.blau-docs-atomic__header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .85rem 1.25rem;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.blau-docs-atomic__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: .6rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.blau-docs-atomic__title { font-size: .8rem; font-weight: 600; color: var(--text); }
+.blau-docs-atomic__desc  { font-size: .7rem; color: var(--mid); margin-left: auto; }
+
+.blau-docs-atomic__body {
+  padding: 1.1rem 1.5rem;
+  background: var(--bg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+}
+
+.blau-docs-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .68rem;
+  color: var(--mid);
+  padding: .28rem .65rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--bg);
+}
+
+.blau-docs-chip__dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+
+/* ── 7. MOTION DEMOS ─────────────────────────────────────── */
+
+.blau-docs-motion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.blau-docs-motion {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.blau-docs-motion__stage {
+  min-height: 160px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.blau-docs-motion__trigger {
+  position: absolute;
+  bottom: .65rem;
+  right: .85rem;
+  font-size: .58rem;
+  color: var(--border);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  font-family: var(--font);
+}
+
+.blau-docs-motion__label {
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--border);
+  padding: .6rem 1rem;
+}
+
+.blau-docs-motion__name { font-size: .73rem; font-weight: 600; color: var(--text); margin-bottom: .15rem; }
+.blau-docs-motion__spec { font-size: .65rem; color: var(--mid); font-family: monospace; line-height: 1.5; }
+
+/* Motion @keyframes — defined here, scoped to the docs page */
+@keyframes ds-fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ds-growLine {
+  from { width: 0; opacity: 0; }
+  to   { width: 100%; opacity: 1; }
+}
+
+@keyframes ds-dotPop {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+
+/* ── 8. ACCESSIBILITY ────────────────────────────────────── */
+
+.blau-docs-a11y-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .85rem;
+}
+
+.blau-docs-a11y {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg);
+}
+
+.blau-docs-a11y__tag {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--blue-tint);
+  color: var(--blue);
+  padding: .18rem .5rem;
+  border-radius: 3px;
+  margin-bottom: .5rem;
+}
+
+.blau-docs-a11y__title { font-size: .8rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; }
+
+.blau-docs-a11y__body  { font-size: .73rem; color: var(--mid); line-height: 1.7; }
+
+.blau-docs-a11y__body code {
+  font-size: .68rem;
+  background: var(--bg-subtle);
+  padding: .1rem .28rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+
+/* ── 9. SIDEBAR CHROME ───────────────────────────────────── */
+
+.blau-docs-sidebar {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .35rem;
+  padding-bottom: 1.25rem;
+}
+
+.blau-docs-sidebar .blau-dot {
+  animation: none;
+  margin-bottom: .2rem;
+}
+
+.blau-docs-sidebar .blau-sidebar__name { line-height: 1.1; font-size: 1rem; }
+.blau-docs-sidebar .blau-sidebar__role { padding-left: 0; font-size: .7rem; }
+
+.blau-docs-version {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  background: var(--blue-tint);
+  color: var(--blue);
+  padding: .15rem .4rem;
+  border-radius: 3px;
+  margin-top: .2rem;
+}
+
+.blau-docs-sidebar__back {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .75rem;
+  color: var(--light);
+  padding: .4rem 1rem;
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+  margin: -.4rem .75rem .75rem;
+  text-decoration: none;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.blau-docs-sidebar__back:hover { color: var(--text); background: var(--bg-subtle); }
+
+
+/* ── 10. MOBILE HEADER + NAV ─────────────────────────────── */
+
+.blau-docs-mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 60;
+}
+
+.blau-docs-mobile-header__brand {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.blau-docs-mobile-header__brand:hover .blau-docs-mobile-header__name { color: var(--blue); }
+
+.blau-docs-mobile-header__actions {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.blau-docs-mobile-theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: none;
+  color: var(--light);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s, transform .2s;
+}
+
+.blau-docs-mobile-theme svg {
+  width: 13px;
+  height: 13px;
+}
+
+.blau-docs-mobile-theme:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.blau-docs-mobile-theme[aria-pressed="true"] {
+  border-color: var(--blue);
+  background: var(--blue-tint);
+  color: var(--blue);
+  transform: scale(1.08);
+}
+
+.blau-docs-mobile-header__name {
+  font-family: var(--font-title);
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.blau-docs-burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: transform .4s cubic-bezier(.22,.61,.36,1);
+}
+
+.blau-docs-burger span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .35s cubic-bezier(.22,.61,.36,1),
+              opacity   .25s ease,
+              width     .25s ease;
+  transform-origin: center;
+}
+
+.blau-docs-burger.is-open { transform: rotate(180deg); }
+.blau-docs-burger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.blau-docs-burger.is-open span:nth-child(2) { width: 0; opacity: 0; }
+.blau-docs-burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.blau-docs-mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--header-h); left: 0; right: 0; bottom: 0;
+  background: var(--white);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  z-index: 55;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.blau-docs-mobile-nav.is-open { opacity: 1; pointer-events: auto; }
+
+.blau-docs-mobile-nav a {
+  font-size: 1rem;
+  color: var(--mid);
+  cursor: pointer;
+  text-decoration: none;
+  padding: .4rem 1rem;
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+}
+
+.blau-docs-mobile-nav a:hover { color: var(--blue); background: var(--blue-tint); }
+
+.blau-docs-mobile-nav__back {
+  margin-top: 1rem;
+  color: var(--blue);
+}
+
+
+/* ── 11. FOOTER ──────────────────────────────────────────── */
+
+.blau-docs-footer {
+  width: 100%;
+  max-width: 960px;
+  padding: 1.75rem 5rem;
+  border-top: 1px solid var(--border);
+}
+
+.blau-docs-footer p {
+  font-size: .7rem;
+  color: var(--light);
+}
+
+
+/* ── 12. LABEL TAG ───────────────────────────────────────── */
+/* Reusable uppercase label — also defined in global.css.
+   This copy is here for use in DS demo HTML snippets. */
+.blau-tag {
+  display: inline-block;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--blue-tint);
+  color: var(--blue);
+  padding: .18rem .5rem;
+  border-radius: 3px;
+  margin-bottom: 0;
+}
+
+
+/* ── 13. RESPONSIVE ──────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .blau-sidebar         { display: none; }
+  .blau-docs-mobile-header   { display: flex; }
+  .blau-docs-mobile-nav      { display: flex; }
+  .blau-docs         { margin-left: 0; padding-top: var(--header-h); overflow-x: hidden; }
+  .blau-docs-section      { padding: 2.5rem 1.5rem; overflow-x: hidden; }
+  .blau-docs__header  { padding: 3.5rem 1.5rem 2rem; }
+  .blau-docs-grid      { grid-template-columns: 1fr; }
+  .blau-docs-motion-grid  { grid-template-columns: 1fr; }
+  .blau-docs-a11y-grid    { grid-template-columns: 1fr; }
+  .blau-docs-type     { grid-template-columns: 1fr; gap: .5rem; }
+  .blau-docs-type__ratio   { display: none; }
+  .blau-docs-demo__preview { padding: 1.5rem 1rem; }
+  .blau-docs-footer       { padding: 1.5rem 1.5rem; }
+}

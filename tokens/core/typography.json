@@ -1,0 +1,44 @@
+{
+  "$description": "Raw typography values — font families, size scale, weights, and line-heights.",
+  "family": {
+    "body":    "'Open Sans', sans-serif",
+    "heading": "'Raleway', sans-serif",
+    "mono":    "monospace"
+  },
+  "size": {
+    "hero":    "clamp(3.5rem, 6.5vw, 7.5rem)",
+    "h1":      "clamp(1.8rem, 2.5vw, 2.6rem)",
+    "h2":      "clamp(2rem, 3.5vw, 3.5rem)",
+    "proj":    "1.6rem",
+    "ds-page": "2.4rem",
+    "ds-sec":  "1.3rem",
+    "body":    "0.93rem",
+    "sm":      "0.88rem",
+    "xs":      "0.82rem",
+    "xxs":     "0.78rem",
+    "label":   "0.75rem",
+    "micro":   "0.70rem",
+    "nano":    "0.63rem",
+    "tag":     "0.58rem"
+  },
+  "weight": {
+    "regular":   400,
+    "semibold":  600,
+    "bold":      700,
+    "extrabold": 800
+  },
+  "lineHeight": {
+    "tight":   0.95,
+    "heading": 1.15,
+    "normal":  1.5,
+    "body":    1.9,
+    "relaxed": 1.75
+  },
+  "letterSpacing": {
+    "tight":  "-0.03em",
+    "normal": "0em",
+    "wide":   "0.08em",
+    "wider":  "0.12em",
+    "widest": "0.18em"
+  }
+}

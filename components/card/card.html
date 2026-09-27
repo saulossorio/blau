@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Card — Blau Components</title>
+  <link rel="stylesheet" href="../../styles/variables.css"/>
+  <link rel="stylesheet" href="../../styles/global.css"/>
+  <style>
+    body { padding: 3rem; max-width: 800px; margin: 0 auto; }
+    h1 { font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 2rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Project Category Card</h1>
+
+  <div class="grid">
+
+    <a class="blau-card" href="#">
+      <div class="blau-card__header">
+        <span class="blau-card__title">Digital Products</span>
+        <span class="blau-card__arrow" aria-hidden="true">→</span>
+      </div>
+      <p class="blau-card__desc">UX/UI, product design, and interactive web experiences built from scratch.</p>
+    </a>
+
+    <a class="blau-card blau-card--featured" href="#">
+      <div class="blau-card__header">
+        <span class="blau-card__title">Visual Arts</span>
+        <span class="blau-card__arrow" aria-hidden="true">→</span>
+      </div>
+      <p class="blau-card__desc">Illustration, photography, and motion design.</p>
+    </a>
+
+    <div class="blau-card blau-card--soon" aria-label="Coming soon">
+      <div class="blau-card__header">
+        <span class="blau-card__title">Writing</span>
+      </div>
+      <p class="blau-card__desc">Articles, essays, and long-form content.</p>
+      <span class="blau-card__badge">Coming soon</span>
+    </div>
+
+  </div>
+
+</body>
+</html>

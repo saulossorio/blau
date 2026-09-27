@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Blau Example</title>
+  <link rel="stylesheet" href="../styles/variables.css"/>
+  <link rel="stylesheet" href="../styles/global.css"/>
+  <style>
+    body { padding: 3rem 2rem; max-width: 900px; margin: 0 auto; font-family: var(--font); }
+    h1 { font-family: var(--font-title); font-size: 1.8rem; font-weight: 700; margin-bottom: .5rem; }
+    .subtitle { font-size: .85rem; color: var(--mid); margin-bottom: 2.5rem; }
+    .toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+    .stat-card {
+      padding: 1.5rem; border: 1.5px solid var(--border); border-radius: 10px;
+      background: var(--bg);
+    }
+    .stat-card__label { font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--light); margin-bottom: .5rem; }
+    .stat-card__value { font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--text); }
+    h2 { font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--light); margin-bottom: 1rem; }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <span class="blau-tag">Example</span>
+  <h1>Dashboard</h1>
+  <p class="subtitle">A layout combining cards, accordion, skills list, and theme controls.</p>
+
+  <div class="toolbar">
+    <div class="blau-toggle" onclick="blauTheme.toggleDark()" role="switch" aria-checked="false" aria-label="Dark mode" tabindex="0">
+      <span class="blau-toggle__track"><span class="blau-toggle__thumb"></span></span>
+      <span class="blau-toggle__label">Dark mode</span>
+    </div>
+    <button class="blau-a11y-btn" onclick="blauTheme.toggleHighContrast()" aria-pressed="false">High contrast</button>
+  </div>
+
+  <div class="grid">
+    <div class="stat-card">
+      <p class="stat-card__label">Projects</p>
+      <p class="stat-card__value">12</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-card__label">Components</p>
+      <p class="stat-card__value">7</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-card__label">Tokens</p>
+      <p class="stat-card__value">18</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-card__label">Themes</p>
+      <p class="stat-card__value">3</p>
+    </div>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="blau-skills">
+    <div class="blau-skills__item">
+      <span class="blau-skills__category">Design</span>
+      <span class="blau-skills__items">Figma, Sketch, Adobe XD, Illustrator, After Effects</span>
+    </div>
+    <div class="blau-skills__item">
+      <span class="blau-skills__category">Frontend</span>
+      <span class="blau-skills__items">HTML, CSS, JavaScript, React, Vue, Svelte</span>
+    </div>
+    <div class="blau-skills__item">
+      <span class="blau-skills__category">Tools</span>
+      <span class="blau-skills__items">Git, VS Code, Vercel, Notion, Linear</span>
+    </div>
+  </div>
+
+  <h2 style="margin-top:2.5rem;">FAQ</h2>
+  <div class="blau-accordion">
+    <button class="blau-accordion__trigger" onclick="toggleAcc(this)" aria-expanded="false">
+      <span class="blau-accordion__arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="blau-accordion__label">What tech stack does this use?</span>
+    </button>
+    <div class="blau-accordion__body" role="region">
+      <div class="blau-accordion__content">
+        <p style="font-size:.85rem;color:var(--mid);line-height:1.7;">Pure HTML, CSS custom properties, and vanilla JavaScript. No build tools or frameworks required.</p>
+      </div>
+    </div>
+  </div>
+  <div class="blau-accordion">
+    <button class="blau-accordion__trigger" onclick="toggleAcc(this)" aria-expanded="false">
+      <span class="blau-accordion__arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="blau-accordion__label">Is it responsive?</span>
+    </button>
+    <div class="blau-accordion__body" role="region">
+      <div class="blau-accordion__content">
+        <p style="font-size:.85rem;color:var(--mid);line-height:1.7;">Yes. Breakpoints at 1200px, 860px, 480px, and 400px adapt layout, spacing, and navigation for all screen sizes.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/utils.js"></script>
+</body>
+</html>

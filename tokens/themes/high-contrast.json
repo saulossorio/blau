@@ -1,0 +1,16 @@
+{
+  "$description": "High-contrast theme for accessibility. Applied via [data-theme='high-contrast'] in styles/variables.css.",
+  "--white":        "#ffffff",
+  "--bg":           "#ffffff",
+  "--bg-subtle":    "#f0f0f0",
+  "--text":         "#000000",
+  "--mid":          "#1a1a1a",
+  "--light":        "#333333",
+  "--blue":         "#0047ab",
+  "--blue-hover":   "#003380",
+  "--blue-tint":    "rgba(0, 71, 171, 0.12)",
+  "--border":       "#000000",
+  "--border-hover": "#000000",
+  "--tag-bg":       "#e8e8e8",
+  "--tag-bg-hover": "#d8d8d8"
+}

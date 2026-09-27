@@ -1,0 +1,18 @@
+/*
+  Modal styles are defined in styles/global.css under section 19.
+  BEM classes:
+
+  .blau-modal                  — fixed overlay (inset: 0, hidden by default)
+  .blau-modal.is-open          — visible state (opacity 1, dark backdrop)
+  .blau-modal__inner           — centered container, scale transition
+  .blau-modal__inner img       — responsive image with slide animations
+  .blau-modal__close           — round close button (top-right)
+  .blau-carousel__btn          — circular prev/next buttons
+  .blau-carousel__btn--prev    — positioned left
+  .blau-carousel__btn--next    — positioned right
+  .blau-carousel__dots         — flex row of dot indicators
+  .blau-carousel__dot          — individual dot
+  .blau-carousel__dot.is-active — highlighted current dot
+
+  Slide animations: .slide-out-left, .slide-in-right, .slide-out-right, .slide-in-left
+*/

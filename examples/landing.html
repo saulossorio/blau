@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page — Blau Example</title>
+  <link rel="stylesheet" href="../styles/variables.css"/>
+  <link rel="stylesheet" href="../styles/global.css"/>
+  <style>
+    body { font-family: var(--font); margin: 0; }
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; padding: 6rem 4rem;
+      max-width: 900px; margin: 0 auto; position: relative;
+    }
+    .hero__tag { margin-bottom: 1.5rem; }
+    .hero__title {
+      font-family: var(--font-title); font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 700; line-height: 1; color: var(--text); margin-bottom: 1.5rem;
+    }
+    .hero__desc { font-size: 1rem; color: var(--mid); line-height: 1.8; max-width: 520px; margin-bottom: 2.5rem; }
+    .hero__actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero__socials { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .section {
+      padding: 5rem 4rem; max-width: 900px; margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .section__title { font-family: var(--font-title); font-size: 1.4rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .scroll-hint {
+      position: absolute; bottom: 3rem; left: 4rem;
+      font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--light); display: flex; align-items: center; gap: .5rem;
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 4rem 1.5rem; }
+      .section { padding: 3rem 1.5rem; }
+      .scroll-hint { bottom: 2rem; left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero__tag">
+      <span class="blau-tag">Portfolio</span>
+    </div>
+    <h1 class="hero__title">Saúl Ossorio</h1>
+    <p class="hero__desc">Product designer and creative developer crafting thoughtful digital experiences. Based in Mexico, working globally.</p>
+    <div class="hero__actions">
+      <a class="blau-btn blau-btn--primary" href="#">Get in touch</a>
+      <a class="blau-btn" href="#">View work</a>
+    </div>
+    <div class="hero__socials">
+      <a class="blau-social" href="#" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="blau-social" href="#" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.38c.6.11.82-.26.82-.58v-2.16c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 00-1.33-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 011.84 1.24 2.56 2.56 0 003.5 1 2.56 2.56 0 01.76-1.61c-2.67-.3-5.47-1.33-5.47-5.93a4.64 4.64 0 011.24-3.22 4.3 4.3 0 01.12-3.18s1-.32 3.3 1.23a11.38 11.38 0 016 0c2.28-1.55 3.29-1.23 3.29-1.23a4.3 4.3 0 01.12 3.18 4.64 4.64 0 011.23 3.22c0 4.61-2.81 5.63-5.48 5.93a2.86 2.86 0 01.82 2.22v3.29c0 .32.21.7.82.58A12 12 0 0012 .3"/></svg>
+        GitHub
+      </a>
+      <a class="blau-social" href="#" target="_blank" rel="noopener">Dribbble</a>
+    </div>
+    <div class="scroll-hint">Scroll ↓</div>
+  </section>
+
+  <section class="section">
+    <span class="blau-eyebrow">Selected Work</span>
+    <h2 class="section__title">Projects</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <a class="blau-card" href="#">
+        <div class="blau-card__header">
+          <span class="blau-card__title">Digital Products</span>
+          <span class="blau-card__arrow" aria-hidden="true">→</span>
+        </div>
+        <p class="blau-card__desc">UX/UI and interactive web experiences.</p>
+      </a>
+      <a class="blau-card" href="#">
+        <div class="blau-card__header">
+          <span class="blau-card__title">Visual Arts</span>
+          <span class="blau-card__arrow" aria-hidden="true">→</span>
+        </div>
+        <p class="blau-card__desc">Illustration, photography, and motion.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="blau-eyebrow">Contact</span>
+    <h2 class="section__title">Let's work together</h2>
+    <p style="font-size:.88rem;color:var(--mid);line-height:1.7;margin-bottom:1.5rem;max-width:480px;">I'm always open to new projects and collaborations. Drop me a message and let's create something great.</p>
+    <a class="blau-btn blau-btn--primary" href="#">Send message</a>
+  </section>
+
+</body>
+</html>

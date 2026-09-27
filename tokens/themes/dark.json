@@ -1,0 +1,16 @@
+{
+  "$description": "Dark theme overrides. Applied via [data-theme='dark'] in styles/variables.css.",
+  "--white":        "#111111",
+  "--bg":           "#111111",
+  "--bg-subtle":    "#1a1a1a",
+  "--text":         "#f0f0ef",
+  "--mid":          "#aaaaaa",
+  "--light":        "#666666",
+  "--blue":         "#3a9ee4",
+  "--blue-hover":   "#2b8fd0",
+  "--blue-tint":    "rgba(58, 158, 228, 0.12)",
+  "--border":       "#2a2a2a",
+  "--border-hover": "#3a3a3a",
+  "--tag-bg":       "#1e1e1e",
+  "--tag-bg-hover": "#252525"
+}

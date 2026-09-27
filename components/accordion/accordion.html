@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accordion — Blau Components</title>
+  <link rel="stylesheet" href="../../styles/variables.css"/>
+  <link rel="stylesheet" href="../../styles/global.css"/>
+  <style>
+    body { padding: 3rem; max-width: 640px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+
+  <h1 style="font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 2rem;">Accordion</h1>
+
+  <div class="blau-accordion">
+    <button class="blau-accordion__trigger" onclick="toggleAcc(this)" aria-expanded="false">
+      <span class="blau-accordion__arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" focusable="false">
+          <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="blau-accordion__label">What is Blau?</span>
+    </button>
+    <div class="blau-accordion__body" role="region">
+      <div class="blau-accordion__content">
+        <p style="font-size: .85rem; color: var(--mid); line-height: 1.7;">Blau is a design system built for Saúl Ossorio's portfolio. It defines tokens, components, and patterns used across all pages.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blau-accordion">
+    <button class="blau-accordion__trigger" onclick="toggleAcc(this)" aria-expanded="false">
+      <span class="blau-accordion__arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" focusable="false">
+          <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="blau-accordion__label">How do I use these components?</span>
+    </button>
+    <div class="blau-accordion__body" role="region">
+      <div class="blau-accordion__content">
+        <p style="font-size: .85rem; color: var(--mid); line-height: 1.7;">Include <code>styles/variables.css</code> and <code>styles/global.css</code> in your page, then copy the HTML markup with the BEM class names.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blau-accordion">
+    <button class="blau-accordion__trigger is-open" onclick="toggleAcc(this)" aria-expanded="true">
+      <span class="blau-accordion__arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" focusable="false">
+          <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="blau-accordion__label">Can I customize the theme?</span>
+    </button>
+    <div class="blau-accordion__body is-open" role="region">
+      <div class="blau-accordion__content">
+        <p style="font-size: .85rem; color: var(--mid); line-height: 1.7;">Yes. Override the CSS custom properties in <code>styles/variables.css</code> or add a new <code>[data-theme]</code> block for your own theme.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../scripts/utils.js"></script>
+</body>
+</html>

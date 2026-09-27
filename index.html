@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  BLAU — Design System by Saúl Ossorio v1.0
+  saulossorio.com/projects/digital-products/blau/
+
+  All components are rendered with real CSS classes from
+  style.css — no mocks or local overrides for the components
+  themselves.
+  ============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blau | Design System by Saúl Ossorio</title>
+  <meta name="description" content="Blau Design System - All design tokens, components, and patterns used in Saúl Ossorio's portfolio."/>
+  <meta name="author" content="Saúl Ossorio"/>
+  <link rel="canonical" href="https://saulossorio.com/projects/digital-products/blau/"/>
+
+  <link rel="icon"             type="image/x-icon" href="src/favicon/favicon.ico"/>
+  <link rel="icon"             type="image/png"    sizes="32x32" href="src/favicon/favicon-32x32.png"/>
+  <link rel="apple-touch-icon"                     sizes="180x180" href="src/favicon/apple-touch-icon.png"/>
+
+  <meta property="og:title"       content="Blau v1.0 - Design System by Saúl Ossorio"/>
+  <meta property="og:description" content="All design tokens, components, and patterns used in Saúl Ossorio's portfolio."/>
+  <meta property="og:type"        content="website"/>
+  <meta name="twitter:card"       content="summary"/>
+  <meta name="twitter:title"      content="Blau v1.0 - Design System"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Design tokens — CSS custom properties (light / dark / high-contrast) -->
+  <link rel="stylesheet" href="styles/variables.css"/>
+  <!-- Base styles, layout, and all shared component styles -->
+  <link rel="stylesheet" href="styles/global.css"/>
+  <!-- Documentation page chrome — .blau-docs-* classes, motion @keyframes -->
+  <link rel="stylesheet" href="docs/docs.css"/>
+</head>
+<body>
+
+<div class="blau-layout">
+
+  <!-- ── MOBILE HEADER ──────────────────────────────────── -->
+  <header class="blau-docs-mobile-header" role="banner">
+    <a href="#" class="blau-docs-mobile-header__brand" aria-label="Go to top"
+       onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <span class="blau-dot blau-dot--nav" aria-hidden="true"></span>
+      <span class="blau-docs-mobile-header__name">Blau</span>
+    </a>
+    <div class="blau-docs-mobile-header__actions">
+      <button class="blau-docs-mobile-theme" id="mobDarkBtn" onclick="blauTheme.toggleDark()" aria-label="Dark mode" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="blau-docs-mobile-theme" id="mobHcBtn" onclick="blauTheme.toggleHighContrast()" aria-label="High contrast" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 000 20z" fill="currentColor"/></svg>
+      </button>
+      <button class="blau-docs-burger" id="dsBurgerBtn" onclick="toggleDsBurger()"
+              aria-label="Open navigation menu" aria-expanded="false" aria-controls="dsMobNav">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="blau-docs-mobile-nav" id="dsMobNav" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#foundation"    onclick="scrollDS('foundation');closeDsNav();return false;">Foundation</a>
+    <a href="#type-scale"    onclick="scrollDS('type-scale');closeDsNav();return false;">Type Scale</a>
+    <a href="#atomic"        onclick="scrollDS('atomic');closeDsNav();return false;">Atomic Design</a>
+    <a href="#brand"         onclick="scrollDS('brand');closeDsNav();return false;">Brand</a>
+    <a href="#navigation"    onclick="scrollDS('navigation');closeDsNav();return false;">Navigation</a>
+    <a href="#social"        onclick="scrollDS('social');closeDsNav();return false;">Social</a>
+    <a href="#interactive"   onclick="scrollDS('interactive');closeDsNav();return false;">Interactive</a>
+    <a href="#lists"         onclick="scrollDS('lists');closeDsNav();return false;">Lists</a>
+    <a href="#layout"        onclick="scrollDS('layout');closeDsNav();return false;">Layout</a>
+    <a href="#motion"        onclick="scrollDS('motion');closeDsNav();return false;">Motion</a>
+    <a href="#accessibility" onclick="scrollDS('accessibility');closeDsNav();return false;">Accessibility</a>
+  </nav>
+
+
+
+
+  <!-- ── SIDEBAR ────────────────────────────────────────── -->
+  <aside class="blau-sidebar" aria-label="Design system navigation">
+
+    <!-- blau-docs-sidebar overrides blau-sidebar__top to stack Blau branding vertically -->
+    <div class="blau-sidebar__top blau-docs-sidebar">
+      <!-- Temporarly theme switcher is here -->
+      <span data-theme-toggle class="blau-dot blau-dot--nav" aria-hidden="true"></span>
+      <p class="blau-sidebar__name">Blau</p>
+      <p class="blau-sidebar__role">Design System by Saúl Ossorio</p>
+      <span class="blau-docs-version">v1.0</span>
+    </div>
+
+    <nav class="blau-sidebar__nav" aria-label="Sections">
+      <a href="#foundation"    onclick="scrollDS('foundation');return false;">Foundation</a>
+      <a href="#type-scale"    onclick="scrollDS('type-scale');return false;">Type Scale</a>
+      <a href="#atomic"        onclick="scrollDS('atomic');return false;">Atomic Design</a>
+      <a href="#brand"         onclick="scrollDS('brand');return false;">Brand</a>
+      <a href="#navigation"    onclick="scrollDS('navigation');return false;">Navigation</a>
+      <a href="#social"        onclick="scrollDS('social');return false;">Social</a>
+      <a href="#interactive"   onclick="scrollDS('interactive');return false;">Interactive</a>
+      <a href="#lists"         onclick="scrollDS('lists');return false;">Lists</a>
+      <a href="#layout"        onclick="scrollDS('layout');return false;">Layout</a>
+      <a href="#motion"        onclick="scrollDS('motion');return false;">Motion</a>
+      <a href="#accessibility" onclick="scrollDS('accessibility');return false;">Accessibility</a>
+    </nav>
+
+    <div class="blau-sidebar__controls">
+      <div class="blau-toggle" onclick="blauTheme.toggleDark()" role="switch" aria-checked="false" aria-label="Dark mode" tabindex="0">
+        <span class="blau-toggle__track"><span class="blau-toggle__thumb"></span></span>
+        <svg class="blau-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <span class="blau-toggle__label">Dark mode</span>
+      </div>
+      <div class="blau-toggle" onclick="blauTheme.toggleHighContrast()" role="switch" aria-checked="false" aria-label="High contrast" tabindex="0">
+        <span class="blau-toggle__track"><span class="blau-toggle__thumb"></span></span>
+        <svg class="blau-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 000 20z" fill="currentColor"/></svg>
+        <span class="blau-toggle__label">High contrast</span>
+      </div>
+    </div>
+
+  </aside>
+
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main class="blau-docs" id="main-content">
+
+    <header class="blau-docs__header">
+      <p class="blau-docs__title">Blau Design System</p>
+      <p class="blau-docs__desc">All design tokens, components, and patterns used in Saúl Ossorio's portfolio. Click motion demos to replay them.</p>
+    </header>
+
+
+    <!-- ══════════════════════════════════════════════
+         1. FOUNDATION
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="foundation">
+      <h2 class="blau-docs-section__title">Foundation</h2>
+      <p class="blau-docs-section__desc">Core design tokens defined in <code>:root</code> in <code>style.css</code>. Never hardcode a hex value — always reference a token. Changing a token updates every component that uses it.</p>
+
+      <div class="blau-docs-subsection">
+        <p class="blau-docs-subsection__title">Color tokens</p>
+        <div class="blau-docs-swatches">
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#0071C5;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Blue</span><span class="blau-docs-swatch__var">--blue</span><span class="blau-docs-swatch__hex">#0071C5</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#005da0;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Blue hover</span><span class="blau-docs-swatch__var">--blue-hover</span><span class="blau-docs-swatch__hex">#005da0</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#1a1a1a;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Text</span><span class="blau-docs-swatch__var">--text</span><span class="blau-docs-swatch__hex">#1a1a1a</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#555555;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Mid</span><span class="blau-docs-swatch__var">--mid</span><span class="blau-docs-swatch__hex">#555555</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#999999;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Light</span><span class="blau-docs-swatch__var">--light</span><span class="blau-docs-swatch__hex">#999999</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#e0e0e0;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Border</span><span class="blau-docs-swatch__var">--border</span><span class="blau-docs-swatch__hex">#e0e0e0</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#f8f8f7;border-bottom:1px solid #e0e0e0;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">BG subtle</span><span class="blau-docs-swatch__var">--bg-subtle</span><span class="blau-docs-swatch__hex">#f8f8f7</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#f0f0ef;border-bottom:1px solid #e0e0e0;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Tag BG</span><span class="blau-docs-swatch__var">--tag-bg</span><span class="blau-docs-swatch__hex">#f0f0ef</span></div></div>
+          <div class="blau-docs-swatch"><div class="blau-docs-swatch__color" style="background:#fff;border-bottom:1px solid #e0e0e0;"></div><div class="blau-docs-swatch__label"><span class="blau-docs-swatch__name">Background</span><span class="blau-docs-swatch__var">--bg</span><span class="blau-docs-swatch__hex">#ffffff</span></div></div>
+        </div>
+        <p style="font-size:.67rem;color:var(--light);margin-top:.6rem;"><code style="font-family:monospace;font-size:.64rem;">#EF5958</code> — used only for the dot rage easter egg. Not a persistent token.</p>
+      </div>
+
+      <div class="blau-docs-subsection">
+        <p class="blau-docs-subsection__title">Font families</p>
+        <div class="blau-docs-grid">
+          <div class="blau-docs-demo">
+            <div class="blau-docs-demo__preview blau-docs-demo__preview--column" style="gap:.35rem;padding:2rem 2rem 1.5rem;">
+              <p style="font-family:'Raleway',sans-serif;font-size:1.6rem;font-weight:700;color:var(--text);line-height:1.1;">Raleway</p>
+              <p style="font-family:'Raleway',sans-serif;font-size:.82rem;color:var(--mid);">Aa Bb Cc — weights 400 600 700 800</p>
+            </div>
+            <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Display / Headings</p><p class="blau-docs-demo__desc">Hero name, section titles, contact heading, project titles.</p></div><span class="blau-docs-class">--font-title</span></div>
+          </div>
+          <div class="blau-docs-demo">
+            <div class="blau-docs-demo__preview blau-docs-demo__preview--column" style="gap:.35rem;padding:2rem 2rem 1.5rem;">
+              <p style="font-family:'Open Sans',sans-serif;font-size:1rem;color:var(--text);line-height:1.8;">Open Sans</p>
+              <p style="font-family:'Open Sans',sans-serif;font-size:.82rem;color:var(--mid);">Aa Bb Cc — weights 300 400 600 700 + italic</p>
+            </div>
+            <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Body / UI text</p><p class="blau-docs-demo__desc">All body copy, labels, nav, buttons, metadata.</p></div><span class="blau-docs-class">--font</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blau-docs-subsection">
+        <p class="blau-docs-subsection__title">Layout tokens</p>
+        <div class="blau-docs-spacing"><div class="blau-docs-spacing__bar" style="width:230px;"></div><span class="blau-docs-spacing__label">Sidebar width</span><span class="blau-docs-spacing__value">--sw · 230px</span></div>
+        <div class="blau-docs-spacing"><div class="blau-docs-spacing__bar" style="width:56px;"></div><span class="blau-docs-spacing__label">Mobile header</span><span class="blau-docs-spacing__value">--header-h · 56px</span></div>
+        <div class="blau-docs-spacing"><div class="blau-docs-spacing__bar" style="width:96px;"></div><span class="blau-docs-spacing__label">Section H-padding</span><span class="blau-docs-spacing__value">6rem desktop · 4rem @1100px · 1.5rem @860px</span></div>
+        <div class="blau-docs-spacing"><div class="blau-docs-spacing__bar" style="width:128px;"></div><span class="blau-docs-spacing__label">Section V-padding</span><span class="blau-docs-spacing__value">8rem/7rem · hero+contact: 10rem/10rem</span></div>
+        <div class="blau-docs-spacing"><div class="blau-docs-spacing__bar" style="width:155px;max-width:60%;"></div><span class="blau-docs-spacing__label">Row label column</span><span class="blau-docs-spacing__value">155px fixed · blau-list__item + blau-skills__item</span></div>
+        <div class="blau-docs-spacing"><div class="blau-docs-spacing__bar" style="width:200px;max-width:60%;"></div><span class="blau-docs-spacing__label">Project image column</span><span class="blau-docs-spacing__value">380px · 300px @1100px · full-width @860px</span></div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         2. TYPE SCALE
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="type-scale">
+      <h2 class="blau-docs-section__title">Type Scale</h2>
+      <p class="blau-docs-section__desc">Two typefaces, contextual sizing. Each row is rendered at its real size — the visual weight difference between levels is what matters. Sizes shown are desktop target values; fluid headings use <code>clamp(min, viewport, max)</code> in CSS so they scale smoothly across screen sizes.</p>
+
+      <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+
+        <div style="padding:1.5rem 2rem .8rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <h1 class="blau-hero__title" style="animation:none;font-size:4.2rem;margin:0;line-height:1;">Heading 1</h1>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.5rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-hero__title</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">4.2rem · Raleway 700 · ls −0.03em · page title only</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">~8× base</span>
+          </div>
+        </div>
+
+        <div style="padding:1.1rem 2rem .7rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <h2 class="blau-contact__heading" style="font-size:2.8rem;margin:0;">Heading 2 — Display</h2>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.4rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-contact__heading</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">2.8rem · Raleway 600 · contact section</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">~3.8× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.9rem 2rem .65rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <h2 class="blau-heading" style="margin:0;">Heading 2 — Section</h2>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.4rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-heading</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">2.2rem · Raleway 600 · lh 1.15 · all main sections</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">~2.8× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.8rem 2rem .6rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <h3 class="blau-work__title" style="margin:0;">Heading 3</h3>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.35rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-work__title</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">1.6rem · Raleway 600 · lh 1.2 · project titles</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">~1.7× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.7rem 2rem .55rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <p class="blau-accordion__label" style="margin:0;">Subheading</p>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.3rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-accordion__label</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">0.95rem · Open Sans 600</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">1.02× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.65rem 2rem .5rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <p style="font-size:.93rem;color:var(--mid);line-height:1.9;margin:0;max-width:480px;">The quick brown fox jumps over the lazy dog. Body text is designed for reading comfort at line-height 1.9.</p>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.3rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-hero__text p · paragraph</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">0.93rem · Open Sans 400 · lh 1.9 · <strong style="color:var(--blue);">base</strong></span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;font-weight:700;margin-left:auto;">1× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.55rem 2rem .45rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <p class="blau-list__title" style="margin:0;">List item primary label</p>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.25rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-list__title</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">0.88rem · Open Sans 600</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">0.95× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.5rem 2rem .4rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <p class="blau-list__subtitle" style="margin:0;">Secondary metadata <span class="blau-list__note">· supporting detail</span></p>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.25rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-list__subtitle</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">0.82rem · Open Sans 400 · --mid</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">0.88× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.45rem 2rem .4rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <p class="blau-list__desc" style="margin:0;">Descriptive tertiary text — small, quiet, supporting.</p>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.25rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-list__desc</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">0.79rem · Open Sans 400 · --light</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">0.85× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.45rem 2rem .35rem;border-bottom:1px solid var(--border);background:var(--bg);">
+          <p class="blau-eyebrow" style="margin:0;">Section label</p>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.25rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-eyebrow</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">0.7rem · Open Sans 400 · UPPERCASE · ls .18em · --light color · no background</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">0.75× base</span>
+          </div>
+        </div>
+
+        <div style="padding:.45rem 2rem .5rem;background:var(--bg);">
+          <span class="blau-tag">Label tag</span>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-top:.35rem;flex-wrap:wrap;">
+            <span class="blau-docs-class">.blau-tag / .blau-tag--role / .blau-tag--project</span>
+            <span style="font-size:.6rem;color:var(--light);font-family:monospace;">0.58-0.68rem · Open Sans 600 · UPPERCASE · ls .08-.12em · --blue color · rgba(blue,.08) background · border-radius 3-4px</span>
+            <span style="font-size:.6rem;color:var(--blue);font-family:monospace;margin-left:auto;">0.62-0.73× base</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         3. ATOMIC DESIGN
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="atomic">
+      <h2 class="blau-docs-section__title">Atomic Design</h2>
+      <p class="blau-docs-section__desc">The portfolio follows atomic design thinking. Design tokens feed atoms, atoms compose into molecules, molecules form organisms, organisms assemble into the page template, and the template filled with real content is the final page.</p>
+
+      <div class="blau-docs-atomic">
+        <div class="blau-docs-atomic__header">
+          <span class="blau-docs-atomic__badge" style="background:rgba(0,113,197,.12);color:var(--blue);">1</span>
+          <span class="blau-docs-atomic__title">Atoms</span>
+          <span class="blau-docs-atomic__desc">Smallest indivisible elements. Drive all other layers.</span>
+        </div>
+        <div class="blau-docs-atomic__body" style="gap:.75rem;align-items:center;flex-wrap:wrap;">
+          <span class="blau-dot" style="width:11px;height:11px;animation:none;flex-shrink:0;" title="blau-dot &lt;span&gt;"></span>
+          <a href="#" onclick="return false;" style="font-size:.82rem;color:var(--blue);text-decoration:underline;" title="&lt;a&gt; anchor">Link</a>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="var(--mid)" title="&lt;svg&gt; social icon"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg viewBox="0 0 8 10" width="8" height="10" fill="var(--mid)" title="&lt;svg&gt; accordion arrow"><polygon points="0,0 8,5 0,10"/></svg>
+          <span style="font-size:.82rem;color:var(--mid);" title="&lt;span&gt; text node">Text</span>
+          <div style="width:44px;height:1px;background:var(--border);" title="divider &lt;hr&gt;"></div>
+          <div style="width:34px;height:24px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:2px;display:flex;align-items:center;justify-content:center;" title="&lt;img&gt; placeholder"><svg viewBox="0 0 16 12" width="13" height="10" fill="var(--border)"><rect width="16" height="12" rx="1"/><path d="M3 9l3-4 2 3 2-2 3 3" stroke="white" stroke-width="1.2" fill="none"/></svg></div>
+          <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--blue);padding:.3rem .65rem;border:1px solid rgba(0,113,197,.22);border-radius:3px;background:rgba(0,113,197,.05);font-family:monospace;">&lt;p&gt; paragraph</span>
+          <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--blue);padding:.3rem .65rem;border:1px solid rgba(0,113,197,.22);border-radius:3px;background:rgba(0,113,197,.05);font-family:monospace;">&lt;h1&gt; – &lt;h3&gt; heading</span>
+          <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--blue);padding:.3rem .65rem;border:1px solid rgba(0,113,197,.22);border-radius:3px;background:rgba(0,113,197,.05);font-family:monospace;">&lt;span&gt; label text</span>
+        </div>
+      </div>
+
+      <div class="blau-docs-atomic">
+        <div class="blau-docs-atomic__header">
+          <span class="blau-docs-atomic__badge" style="background:rgba(0,113,197,.08);color:var(--blue);">2</span>
+          <span class="blau-docs-atomic__title">Molecules</span>
+          <span class="blau-docs-atomic__desc">Atoms combined into functional UI groups.</span>
+        </div>
+        <div class="blau-docs-atomic__body" style="gap:.85rem;">
+          <a class="blau-social" href="#" onclick="return false;" style="pointer-events:none;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>Social tag</span>
+          </a>
+          <button class="blau-lang__btn blau-lang__btn--active" style="pointer-events:none;">EN</button>
+          <a class="blau-btn blau-btn--primary" href="#" onclick="return false;" style="pointer-events:none;">CTA pill</a>
+          <a class="blau-btn" href="#" onclick="return false;" style="pointer-events:none;">Default pill</a>
+          <button class="blau-accordion__trigger" style="pointer-events:none;padding:.4rem 0;border-bottom:none;width:180px;">
+            <span class="blau-accordion__label" style="font-size:.8rem;">Accordion trigger</span>
+            <span class="blau-accordion__arrow" style="margin-right:.4rem;"><svg viewBox="0 0 8 10" width="7" height="7" fill="currentColor"><polygon points="0,0 8,5 0,10"/></svg></span>
+          </button>
+          <div class="blau-list__item" style="grid-template-columns:80px 1fr;padding:.35rem 0;border:none;gap:.75rem;">
+            <div class="blau-list__period" style="font-size:.68rem;">Jan 2025</div>
+            <div><p class="blau-list__title" style="margin:0;font-size:.76rem;">Row item</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blau-docs-atomic">
+        <div class="blau-docs-atomic__header">
+          <span class="blau-docs-atomic__badge" style="background:rgba(0,113,197,.05);color:var(--blue);">3</span>
+          <span class="blau-docs-atomic__title">Organisms</span>
+          <span class="blau-docs-atomic__desc">Complex, self-contained page sections built from molecules.</span>
+        </div>
+        <div class="blau-docs-atomic__body" style="flex-direction:column;align-items:flex-start;">
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+            <span class="blau-docs-chip" style="background:rgba(0,113,197,.04);border-color:rgba(0,113,197,.2);">Hero section</span>
+            <span class="blau-docs-chip" style="background:rgba(0,113,197,.04);border-color:rgba(0,113,197,.2);">Project block</span>
+            <span class="blau-docs-chip" style="background:rgba(0,113,197,.04);border-color:rgba(0,113,197,.2);">Accordion section</span>
+            <span class="blau-docs-chip" style="background:rgba(0,113,197,.04);border-color:rgba(0,113,197,.2);">Contact section</span>
+            <span class="blau-docs-chip" style="background:rgba(0,113,197,.04);border-color:rgba(0,113,197,.2);">Sidebar</span>
+            <span class="blau-docs-chip" style="background:rgba(0,113,197,.04);border-color:rgba(0,113,197,.2);">Mobile header + nav</span>
+          </div>
+          <p style="font-size:.7rem;color:var(--light);line-height:1.6;margin-top:.5rem;">Each organism has its own semantic landmark, ARIA roles, scroll/fade behavior, and GTM data attributes. Built inside <code style="font-family:monospace;font-size:.66rem;background:var(--bg-subtle);padding:.05rem .25rem;border-radius:2px;">renderPage()</code> in <code style="font-family:monospace;font-size:.66rem;background:var(--bg-subtle);padding:.05rem .25rem;border-radius:2px;">index.html</code>.</p>
+        </div>
+      </div>
+
+      <div class="blau-docs-atomic">
+        <div class="blau-docs-atomic__header">
+          <span class="blau-docs-atomic__badge" style="background:rgba(0,113,197,.03);color:var(--blue);">4</span>
+          <span class="blau-docs-atomic__title">Template</span>
+          <span class="blau-docs-atomic__desc">Page skeleton — layout without real content.</span>
+        </div>
+        <div class="blau-docs-atomic__body" style="gap:1.25rem;align-items:center;">
+          <div style="display:flex;gap:.65rem;align-items:stretch;width:260px;">
+            <div style="width:34px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:6px 0;">
+              <div style="width:18px;height:3px;background:var(--blue);border-radius:2px;opacity:.4;"></div>
+              <div style="width:14px;height:2px;background:var(--border);border-radius:2px;"></div>
+              <div style="width:14px;height:2px;background:var(--border);border-radius:2px;"></div>
+              <div style="width:14px;height:2px;background:var(--border);border-radius:2px;"></div>
+            </div>
+            <div style="flex:1;border:1px solid var(--border);border-radius:4px;padding:7px;display:flex;flex-direction:column;gap:5px;">
+              <div style="height:9px;background:var(--blue);border-radius:2px;opacity:.12;width:55%;"></div>
+              <div style="height:6px;background:var(--border);border-radius:2px;width:35%;"></div>
+              <div style="height:6px;background:var(--border);border-radius:2px;width:85%;margin-top:3px;"></div>
+              <div style="height:6px;background:var(--border);border-radius:2px;width:75%;"></div>
+              <div style="height:6px;background:var(--border);border-radius:2px;width:65%;"></div>
+            </div>
+          </div>
+          <p style="font-size:.72rem;color:var(--mid);line-height:1.65;max-width:300px;"><code style="font-family:monospace;font-size:.66rem;background:var(--bg-subtle);padding:.05rem .25rem;border-radius:2px;">.blau-layout</code> — fixed sidebar (var(--sw) = 230px) + fluid <code style="font-family:monospace;font-size:.66rem;background:var(--bg-subtle);padding:.05rem .25rem;border-radius:2px;">main</code>. Main centers children at max-width 1200px with horizontal padding.</p>
+        </div>
+      </div>
+
+      <div class="blau-docs-atomic">
+        <div class="blau-docs-atomic__header">
+          <span class="blau-docs-atomic__badge" style="background:rgba(0,113,197,.02);color:var(--blue);">5</span>
+          <span class="blau-docs-atomic__title">Page</span>
+          <span class="blau-docs-atomic__desc">Template + real content = the final rendered portfolio.</span>
+        </div>
+        <div class="blau-docs-atomic__body">
+          <span class="blau-docs-chip" style="border-color:var(--blue);color:var(--blue);">index.html</span>
+          <p style="font-size:.72rem;color:var(--mid);line-height:1.65;max-width:480px;">Content from <code style="font-family:monospace;font-size:.66rem;background:var(--bg-subtle);padding:.05rem .25rem;border-radius:2px;">data.js</code> is injected at runtime by <code style="font-family:monospace;font-size:.66rem;background:var(--bg-subtle);padding:.05rem .25rem;border-radius:2px;">renderPage()</code>. Language switching rerenders all organisms instantly — same template, new content, no page reload.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         4. BRAND
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="brand">
+      <h2 class="blau-docs-section__title">Brand</h2>
+      <p class="blau-docs-section__desc">The blue dot is the sole brand mark. No ring, circle, or frame — just the dot. It appears in two size contexts, each with different behavior.</p>
+
+      <div class="blau-docs-grid">
+        <div class="blau-docs-demo">
+          <div class="blau-docs-demo__preview" style="justify-content:center;align-items:center;padding:2.5rem 2rem;">
+            <span class="blau-dot blau-dot--hero" id="dsDot" style="animation:none;cursor:pointer;" title="Click me"></span>
+          </div>
+          <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Hero dot</p><p class="blau-docs-demo__desc">54×54px · entrance animation on load · click = pulse · 10 clicks = rage shake + color snap back</p></div><span class="blau-docs-class">.blau-dot--hero</span></div>
+        </div>
+        <div class="blau-docs-demo">
+          <div class="blau-docs-demo__preview" style="justify-content:center;align-items:center;padding:2.5rem 2rem;gap:.55rem;">
+            <span class="blau-dot blau-dot--nav" aria-hidden="true" style="animation:none;flex-shrink:0;"></span>
+            <span class="blau-sidebar__name" style="font-size:.9rem;line-height:1;">Saúl Ossorio</span>
+          </div>
+          <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Nav dot</p><p class="blau-docs-demo__desc">1em × 1em · inline-left of name, vertically centered · mobile header</p></div><span class="blau-docs-class">.blau-dot--nav</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         5. NAVIGATION
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="navigation">
+      <h2 class="blau-docs-section__title">Navigation</h2>
+      <p class="blau-docs-section__desc">Sidebar nav and language switcher. All states are live — click to interact.</p>
+
+      <div class="blau-docs-grid">
+        <div class="blau-docs-demo">
+          <div class="blau-docs-demo__preview" style="justify-content:center;padding:2rem;">
+            <nav style="width:160px;display:flex;flex-direction:column;gap:.1rem;">
+              <a style="display:block;padding:.45rem 1rem;font-size:.8rem;color:var(--mid);border-radius:6px;cursor:default;">About me</a>
+              <a style="display:block;padding:.45rem 1rem;font-size:.8rem;color:var(--blue);background:rgba(0,113,197,.07);border-radius:6px;font-weight:600;cursor:default;">My projects</a>
+              <a style="display:block;padding:.45rem 1rem;font-size:.8rem;color:var(--mid);border-radius:6px;cursor:default;">My path</a>
+              <a style="display:block;padding:.45rem 1rem;font-size:.8rem;color:var(--mid);border-radius:6px;cursor:default;">Get in touch</a>
+            </nav>
+          </div>
+          <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Sidebar nav</p><p class="blau-docs-demo__desc">Default: --mid · Active: --blue + rgba(blue,.07) + weight 600 · Hover: --bg-subtle + --text</p></div><div class="blau-docs-tags"><span class="blau-docs-class">.blau-sidebar__nav a</span><span class="blau-docs-class">.is-active</span></div></div>
+        </div>
+        <div class="blau-docs-demo">
+          <div class="blau-docs-demo__preview" style="justify-content:center;align-items:center;padding:2rem;gap:.4rem;">
+            <button class="blau-lang__btn blau-docs-lb blau-lang__btn--active" onclick="document.querySelectorAll('.blau-docs-lb').forEach(b=>b.classList.remove('blau-lang__btn--active'));this.classList.add('blau-lang__btn--active')"><span>EN</span></button>
+            <button class="blau-lang__btn blau-docs-lb" onclick="document.querySelectorAll('.blau-docs-lb').forEach(b=>b.classList.remove('blau-lang__btn--active'));this.classList.add('blau-lang__btn--active')"><span>PT</span></button>
+            <button class="blau-lang__btn blau-docs-lb" onclick="document.querySelectorAll('.blau-docs-lb').forEach(b=>b.classList.remove('blau-lang__btn--active'));this.classList.add('blau-lang__btn--active')"><span>ES</span></button>
+          </div>
+          <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Language switcher</p><p class="blau-docs-demo__desc">0.7rem · weight 600 · letter-spacing .08em · no border · Active: tint bg rgba(blue,.07) · Hover: blue sweep from left</p></div><div class="blau-docs-tags"><span class="blau-docs-class">.blau-lang__btn</span><span class="blau-docs-class">.blau-lang__btn--active</span></div></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         6. SOCIAL
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="social">
+      <h2 class="blau-docs-section__title">Social</h2>
+      <p class="blau-docs-section__desc">Two variants: icon + label for hero and contact sections, icon-only for sidebar and footer. All three states shown for each.</p>
+
+      <div class="blau-docs-demo">
+        <div class="blau-docs-demo__preview blau-docs-demo__preview--column" style="gap:1.25rem;padding:2rem;">
+          <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+            <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;">
+              <span class="blau-tag" style="background:var(--bg-subtle);color:var(--light);">Default</span>
+              <a class="blau-social" href="#" onclick="return false;" style="pointer-events:none;opacity:.75;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;">
+              <span class="blau-tag" style="background:var(--bg-subtle);color:var(--light);">Hover</span>
+              <a class="blau-social" href="#" onclick="return false;" style="pointer-events:none;opacity:1;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;">
+              <span class="blau-tag">Live — hover me</span>
+              <div style="display:flex;gap:.4rem;flex-wrap:wrap;">
+                <a class="blau-social" href="#" onclick="return false;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a>
+                <a class="blau-social" href="#" onclick="return false;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+                <a class="blau-social" href="#" onclick="return false;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg><span>Medium</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Social tag — icon + label</p><p class="blau-docs-demo__desc">border-radius 100px · --tag-bg fill · 0.78rem · opacity .75 default → 1 on hover · bg darkens + border darkens + text to --text on hover</p></div><span class="blau-docs-class">.blau-social</span></div>
+      </div>
+
+      <div class="blau-docs-demo">
+        <div class="blau-docs-demo__preview" style="padding:2rem;gap:2.5rem;align-items:flex-start;">
+          <div style="display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;">
+            <span class="blau-tag" style="background:var(--bg-subtle);color:var(--light);">Default</span>
+            <div style="display:flex;gap:.75rem;">
+              <a href="#" onclick="return false;" style="color:var(--light);display:flex;pointer-events:none;"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              <a href="#" onclick="return false;" style="color:var(--light);display:flex;pointer-events:none;"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+              <a href="#" onclick="return false;" style="color:var(--light);display:flex;pointer-events:none;"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;">
+            <span class="blau-tag" style="background:var(--bg-subtle);color:var(--light);">Hover</span>
+            <div style="display:flex;gap:.75rem;">
+              <a href="#" onclick="return false;" style="color:var(--blue);display:flex;pointer-events:none;"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              <a href="#" onclick="return false;" style="color:var(--blue);display:flex;pointer-events:none;"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+              <a href="#" onclick="return false;" style="color:var(--blue);display:flex;pointer-events:none;"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;">
+            <span class="blau-tag">Live — hover me</span>
+            <div style="display:flex;gap:.75rem;">
+              <a href="#" onclick="return false;" style="color:var(--light);display:flex;transition:color .2s;" onmouseenter="this.style.color='var(--blue)'" onmouseleave="this.style.color='var(--light)'"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              <a href="#" onclick="return false;" style="color:var(--light);display:flex;transition:color .2s;" onmouseenter="this.style.color='var(--blue)'" onmouseleave="this.style.color='var(--light)'"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+              <a href="#" onclick="return false;" style="color:var(--light);display:flex;transition:color .2s;" onmouseenter="this.style.color='var(--blue)'" onmouseleave="this.style.color='var(--light)'"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Social icon — icon only</p><p class="blau-docs-demo__desc">15×15px SVG · --light default → --blue hover · transition color .2s · sidebar only</p></div><span class="blau-docs-class">.sidebar-socials a</span></div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         7. INTERACTIVE ELEMENTS
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="interactive">
+      <h2 class="blau-docs-section__title">Interactive Elements</h2>
+      <p class="blau-docs-section__desc">Pills/CTAs and the accordion. All states are live — click to interact.</p>
+
+      <div class="blau-docs-demo">
+        <div class="blau-docs-demo__preview" style="flex-wrap:wrap;gap:.6rem;">
+          <a class="blau-btn" href="#" onclick="return false;">Default pill</a>
+          <a class="blau-btn blau-btn--primary" href="#" onclick="return false;">Primary CTA</a>
+          <a class="blau-btn blau-btn--primary" href="#" onclick="return false;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Send me a message
+          </a>
+          <span class="blau-btn">Case study coming soon</span>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Pills / CTAs</p><p class="blau-docs-demo__desc">border-radius 100px · Default: --mid + border → blue on hover · Blue: circle reveal animation (left to right) with clip-path on hover</p></div><div class="blau-docs-tags"><span class="blau-docs-class">.blau-btn</span><span class="blau-docs-class">.blau-btn--primary</span></div></div>
+      </div>
+
+      <div class="blau-docs-demo">
+        <div class="blau-docs-demo__preview--full">
+          <div style="padding:1rem 2rem 0;">
+            <div class="blau-accordion" style="margin:0;">
+              <button class="blau-accordion__trigger" onclick="toggleAcc(this)" aria-expanded="false">
+                <span class="blau-accordion__label">Work Experience</span>
+                <span class="blau-accordion__arrow"><svg viewBox="0 0 8 10" width="8" height="10" fill="currentColor"><polygon points="0,0 8,5 0,10"/></svg></span>
+              </button>
+              <div class="blau-accordion__body">
+                <div class="blau-accordion__content">
+                  <div class="blau-list">
+                    <div class="blau-list__item">
+                      <div class="blau-list__period">Jan 2025 – Dec 2025</div>
+                      <div>
+                        <p class="blau-list__title">Product Designer &amp; UX Consultant</p>
+                        <p class="blau-list__subtitle">Fexpocruz <span class="blau-list__note">· Contract · Bolivia</span></p>
+                        <p class="blau-list__desc">Led UX and digital product design for Expocruz 2025.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="blau-accordion" style="margin:0;">
+              <button class="blau-accordion__trigger is-open" onclick="toggleAcc(this)" aria-expanded="true">
+                <span class="blau-accordion__label">Education</span>
+                <span class="blau-accordion__arrow"><svg viewBox="0 0 8 10" width="8" height="10" fill="currentColor"><polygon points="0,0 8,5 0,10"/></svg></span>
+              </button>
+              <div class="blau-accordion__body is-open">
+                <div class="blau-accordion__content">
+                  <div class="blau-list">
+                    <div class="blau-list__item">
+                      <div class="blau-list__period">Mar 2024 – Mar 2026</div>
+                      <div>
+                        <p class="blau-list__title">Master's Degree, Design</p>
+                        <p class="blau-list__subtitle">Universidade Federal do Paraná (UFPR)</p>
+                        <p class="blau-list__desc">Dissertation: Usability Heuristics for Immersive Virtual Learning Environments.</p>
+                      </div>
+                    </div>
+                    <div class="blau-list__item">
+                      <div class="blau-list__period">Mar 2021 – Nov 2022</div>
+                      <div>
+                        <p class="blau-list__title">Bachelor's Degree, Science and Technology</p>
+                        <p class="blau-list__subtitle">Universidade Federal de Santa Catarina (UFSC)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Accordion</p><p class="blau-docs-demo__desc">border-top on section · arrow rotates 90° when open · max-height 0→9999px · 0.45s ease · aria-expanded via toggleAcc()</p></div><div class="blau-docs-tags"><span class="blau-docs-class">.blau-accordion</span><span class="blau-docs-class">.blau-accordion__trigger.is-open</span><span class="blau-docs-class">.blau-accordion__body.is-open</span></div></div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         8. LISTS
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="lists">
+      <h2 class="blau-docs-section__title">Lists</h2>
+      <p class="blau-docs-section__desc">Two patterns sharing the same two-column grid: 155px label column + 1fr content.</p>
+
+      <div class="blau-docs-demo">
+        <div class="blau-docs-demo__preview--full">
+          <div style="padding:1rem 2rem 0;">
+            <div class="blau-list">
+              <div class="blau-list__item">
+                <div class="blau-list__period">Jul 2023 – Dec 2023</div>
+                <div>
+                  <p class="blau-list__title">Web Analytics Consultant</p>
+                  <p class="blau-list__subtitle">Fexpocruz <span class="blau-list__note">· Contract · Remote</span></p>
+                  <p class="blau-list__desc">Drove 70% increase in traffic and 350% increase in online ticket sales.</p>
+                </div>
+              </div>
+              <div class="blau-list__item">
+                <div class="blau-list__period">Spanish</div>
+                <div>
+                  <p class="blau-list__title">Native or bilingual proficiency</p>
+                  <p class="blau-list__subtitle">Celpe-Bras</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Row item</p><p class="blau-docs-demo__desc">grid-template-columns: 155px 1fr · gap: 2rem · border-bottom: 1px · experience, education, courses, languages</p></div><div class="blau-docs-tags"><span class="blau-docs-class">.blau-list</span><span class="blau-docs-class">.blau-list__item</span></div></div>
+      </div>
+
+      <div class="blau-docs-demo">
+        <div class="blau-docs-demo__preview--full">
+          <div style="padding:1rem 2rem 0;">
+            <div class="blau-skills">
+              <div class="blau-skills__item">
+                <p class="blau-skills__category">Design &amp; UX</p>
+                <p class="blau-skills__items">Product Design · UX Research · UI Design · Wireframing · Prototyping · Figma · Webflow · Accessibility</p>
+              </div>
+              <div class="blau-skills__item">
+                <p class="blau-skills__category">Data &amp; Analytics</p>
+                <p class="blau-skills__items">Google Analytics 4 · GTM · BigQuery · SQL · Python · Data Visualization · Microsoft Clarity</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Skill row</p><p class="blau-docs-demo__desc">Same grid (155px 1fr) · category in --light · items in --mid · line-height 1.75</p></div><div class="blau-docs-tags"><span class="blau-docs-class">.blau-skills</span><span class="blau-docs-class">.blau-skills__item</span></div></div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         9. LAYOUT
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="layout">
+      <h2 class="blau-docs-section__title">Layout</h2>
+      <p class="blau-docs-section__desc">Structural elements shared across all sections.</p>
+
+      <div class="blau-docs-grid">
+        <div class="blau-docs-demo">
+          <div class="blau-docs-demo__preview" style="flex-direction:column;justify-content:center;align-items:stretch;padding:1.25rem 2rem;gap:.6rem;">
+            <p style="font-size:.65rem;color:var(--light);text-align:center;margin:0;">— section above —</p>
+            <div class="blau-divider" style="width:100%;margin:0;"></div>
+            <p style="font-size:.65rem;color:var(--light);text-align:center;margin:0;">— section below —</p>
+          </div>
+          <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Section divider</p><p class="blau-docs-demo__desc">1px · --border · max-width 1200px · separates sections</p></div><span class="blau-docs-class">.blau-divider</span></div>
+        </div>
+        <div class="blau-docs-demo">
+          <div class="blau-docs-demo__preview" style="justify-content:center;align-items:center;padding:2.5rem 2rem;">
+            <div class="blau-scroll-hint" style="position:relative;bottom:auto;left:auto;animation:none;opacity:1;pointer-events:none;">
+              <div class="blau-scroll-hint__icon"><div class="blau-scroll-hint__dot"></div></div>
+              <span>Scroll</span>
+            </div>
+          </div>
+          <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Scroll hint</p><p class="blau-docs-demo__desc">position:absolute in hero · scrollDot keyframe 1.6s infinite</p></div><span class="blau-docs-class">.blau-scroll-hint</span></div>
+        </div>
+      </div>
+
+      <div class="blau-docs-demo" style="margin-top:1.25rem;">
+        <div class="blau-docs-demo__preview blau-docs-demo__preview--column" style="gap:.5rem;padding:1.5rem 2rem 1.25rem;">
+          <div class="blau-contact__line in" style="width:100%;margin:0;"></div>
+          <p style="font-size:.65rem;color:var(--light);margin:0;">Triggered by IntersectionObserver on scroll into viewport</p>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Contact line</p><p class="blau-docs-demo__desc">--blue→transparent gradient · width 0→100% over 6s · .in class added by IntersectionObserver</p></div><span class="blau-docs-class">.blau-contact__line.in</span></div>
+      </div>
+
+      <div class="blau-docs-demo" style="margin-top:1.25rem;">
+        <div class="blau-docs-demo__preview--full">
+          <div class="projects-wrap" style="padding:0 2rem;">
+            <article class="project-block" style="grid-template-columns:1fr 180px;gap:2rem;padding:2rem 0;">
+              <div>
+                <h3 class="blau-work__title">Skoob</h3>
+                <div class="blau-work__tags"><span class="blau-tag--project">UX/UI Design</span><span class="blau-tag--project">Web Platform</span></div>
+                <div class="blau-work__field"><span class="blau-work__key">Challenge</span><p class="blau-work__value">Redesign Brazil's largest reading platform.</p></div>
+                <div class="blau-work__links" style="margin-top:1rem;"><a class="blau-btn blau-btn--primary" href="#" onclick="return false;">Case Study</a></div>
+              </div>
+              <div class="blau-work__image">
+                <div style="background:var(--bg-subtle);width:100%;height:100%;min-height:120px;display:flex;align-items:center;justify-content:center;"><span style="font-size:.62rem;color:var(--light);">1:1 image</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="blau-docs-demo__meta"><div><p class="blau-docs-demo__name">Project block</p><p class="blau-docs-demo__desc">grid-template-columns: 1fr 380px · gap: 4rem · image aspect-ratio 1:1 · mobile: image moves to top as 16:9</p></div><div class="blau-docs-tags"><span class="blau-docs-class">.project-block</span><span class="blau-docs-class">.blau-work__image</span></div></div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         10. MOTION
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="motion">
+      <h2 class="blau-docs-section__title">Motion</h2>
+      <p class="blau-docs-section__desc"><strong style="font-weight:600;color:var(--text);">Click each card to replay</strong> the animation. All animations respect <code>prefers-reduced-motion: reduce</code> — durations collapse to 0.01ms for users who opt out.</p>
+
+      <div class="blau-docs-motion-grid">
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" onclick="replayFadeUp()" title="Click to replay">
+            <div id="demo-fadeup" style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:6px;padding:.65rem 1.1rem;font-size:.8rem;color:var(--text);">Section content</div>
+            <span class="blau-docs-motion__trigger">click to replay</span>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">fadeUp / .blau-fade.in</p>
+            <p class="blau-docs-motion__spec">opacity 0→1 · translateY 24px→0 · 0.65s ease · IntersectionObserver threshold 0.08</p>
+          </div>
+        </div>
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" onclick="replayDotPop()" title="Click to replay">
+            <span id="demo-dotpop" class="blau-dot blau-dot--hero" style="cursor:pointer;"></span>
+            <span class="blau-docs-motion__trigger">click to replay</span>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">dotPop</p>
+            <p class="blau-docs-motion__spec">scale 0→1.08→1 · 0.9s cubic-bezier(.22,.61,.36,1) · hero dot entrance on load</p>
+          </div>
+        </div>
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" style="cursor:default;">
+            <div class="blau-scroll-hint" style="position:relative;bottom:auto;left:auto;animation:none;opacity:1;pointer-events:none;">
+              <div class="blau-scroll-hint__icon"><div class="blau-scroll-hint__dot"></div></div>
+              <span>Scroll</span>
+            </div>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">scrollDot</p>
+            <p class="blau-docs-motion__spec">translateY 0→14px + opacity 1→0 · 1.6s ease infinite · running live above</p>
+          </div>
+        </div>
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" onclick="replayLine()" title="Click to replay" style="padding:1.5rem 2rem;">
+            <div style="width:100%;">
+              <div id="demo-line" style="height:1.5px;background:linear-gradient(90deg,#0071C5 0%,rgba(0,113,197,.15) 100%);border-radius:2px;width:0;opacity:0;"></div>
+            </div>
+            <span class="blau-docs-motion__trigger">click to replay</span>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">growLine</p>
+            <p class="blau-docs-motion__spec">width 0→100% + opacity · 2.5s cubic-bezier(.05,0,.15,1) · contact section divider</p>
+          </div>
+        </div>
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" onclick="replayBounce()" title="Click to replay">
+            <span id="demo-bounce" class="blau-dot blau-dot--hero" style="animation:none;cursor:pointer;"></span>
+            <span class="blau-docs-motion__trigger">click to replay</span>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">Dot bounce (on click)</p>
+            <p class="blau-docs-motion__spec">scale 1→0.82→1.06→1 · 380ms · Web Animations API (GPU composited)</p>
+          </div>
+        </div>
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" style="padding:.75rem 1.5rem;cursor:default;flex-direction:column;align-items:stretch;justify-content:center;">
+            <div class="blau-accordion" style="margin:0;">
+              <button class="blau-accordion__trigger" onclick="toggleAcc(this)" aria-expanded="false" style="padding:.75rem 0;">
+                <span class="blau-accordion__label" style="font-size:.82rem;">Click to expand</span>
+                <span class="blau-accordion__arrow"><svg viewBox="0 0 8 10" width="7" height="7" fill="currentColor"><polygon points="0,0 8,5 0,10"/></svg></span>
+              </button>
+              <div class="blau-accordion__body">
+                <div class="blau-accordion__content" style="padding-bottom:.75rem;">
+                  <p style="font-size:.76rem;color:var(--mid);">Content revealed with max-height transition.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">Accordion open/close</p>
+            <p class="blau-docs-motion__spec">max-height 0→9999px · 0.45s ease · arrow rotates 90° · click trigger above</p>
+          </div>
+        </div>
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" onclick="replayNameReveal()" title="Click to replay" style="gap:.5rem;">
+            <span class="blau-dot blau-dot--nav" style="animation:none;"></span>
+            <span id="demo-namereveal" class="blau-mobile-header__name" style="position:relative;opacity:0;transform:none;">Saúl Ossorio</span>
+            <span class="blau-docs-motion__trigger">click to replay</span>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">Mobile name reveal</p>
+            <p class="blau-docs-motion__spec">opacity 0→1 + translateY 8px→0 · 0.4s ease · triggers when hero H1 leaves viewport</p>
+          </div>
+        </div>
+
+        <div class="blau-docs-motion">
+          <div class="blau-docs-motion__stage" style="cursor:default;">
+            <button class="blau-burger" onclick="this.classList.toggle('is-open')" aria-label="Toggle demo" style="transform:none;">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+          <div class="blau-docs-motion__label">
+            <p class="blau-docs-motion__name">Burger menu open/close</p>
+            <p class="blau-docs-motion__spec">lines 1+3 rotate ±45° · line 2 width→0 · 0.35s cubic-bezier · click to toggle</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         11. ACCESSIBILITY
+    ══════════════════════════════════════════════ -->
+    <section class="blau-docs-section" id="accessibility">
+      <h2 class="blau-docs-section__title">Accessibility</h2>
+      <p class="blau-docs-section__desc">WCAG AA compliance patterns implemented throughout the portfolio. Contrast ratios are tested against white (#ffffff).</p>
+
+      <div class="blau-docs-a11y-grid">
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Skip link</span>
+          <p class="blau-docs-a11y__title">Skip to main content</p>
+          <p class="blau-docs-a11y__body">First focusable element in the DOM. Visually hidden until focused — then appears at the top of the page. Targets <code>#main-content</code> with <code>tabindex="-1"</code>.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Focus ring</span>
+          <p class="blau-docs-a11y__title">Keyboard focus indicator</p>
+          <p class="blau-docs-a11y__body"><code>:focus-visible</code> — 2px solid <code>--blue</code>, 3px offset, border-radius 4px. Hidden for mouse via <code>:focus:not(:focus-visible)</code> so it only shows for keyboard users.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">ARIA</span>
+          <p class="blau-docs-a11y__title">ARIA attributes</p>
+          <p class="blau-docs-a11y__body"><code>aria-expanded</code> on accordion triggers and burger. <code>aria-modal</code> + <code>role="dialog"</code> on image lightbox. <code>aria-hidden="true"</code> on decorative dots, dividers, and all SVGs.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Keyboard</span>
+          <p class="blau-docs-a11y__title">Keyboard navigation</p>
+          <p class="blau-docs-a11y__body">Image modal: <code>←</code> <code>→</code> navigate carousel, <code>Esc</code> closes. Nav links use <code>tabindex="0"</code> + <code>onkeydown</code> Enter handler since they're <code>role="button"</code> anchors.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Reduced motion</span>
+          <p class="blau-docs-a11y__title">prefers-reduced-motion</p>
+          <p class="blau-docs-a11y__body">Global rule sets all durations to <code>0.01ms</code> and disables smooth scroll. Exception: <code>scrollDot</code> re-enabled on mobile via <code>!important</code> — a simple translate/opacity dot is not a vestibular risk.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Contrast</span>
+          <p class="blau-docs-a11y__title">Color contrast ratios</p>
+          <p class="blau-docs-a11y__body">
+            <code>--text</code> #1a1a1a → <strong>16.1:1</strong> AAA ·
+            <code>--mid</code> #555 → <strong>7.46:1</strong> AAA ·
+            <code>--blue</code> #0071C5 → <strong>4.56:1</strong> AA ·
+            <code>--light</code> #999 → 2.85:1 — decorative/secondary labels only, never body copy.
+          </p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Images</span>
+          <p class="blau-docs-a11y__title">Alt text</p>
+          <p class="blau-docs-a11y__body">Profile: "Portrait of Saúl Ossorio". Project thumbnails use the project title. Carousel slides use the <code>alt</code> defined per-image in <code>data.js → images[].alt</code>.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">SVG icons</span>
+          <p class="blau-docs-a11y__title">Inline SVG accessibility</p>
+          <p class="blau-docs-a11y__body">All SVGs carry <code>aria-hidden="true"</code> and <code>focusable="false"</code>. The accessible name is provided by the parent <code>&lt;a&gt;</code> via <code>aria-label="Visit LinkedIn (opens in new tab)"</code>.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Lang attr</span>
+          <p class="blau-docs-a11y__title">Language declaration</p>
+          <p class="blau-docs-a11y__body"><code>lang</code> on <code>&lt;html&gt;</code> updates on every language switch via <code>document.documentElement.lang = lang</code>. Screen readers use this to select the correct pronunciation engine.</p>
+        </div>
+
+        <div class="blau-docs-a11y">
+          <span class="blau-docs-a11y__tag">Semantic HTML</span>
+          <p class="blau-docs-a11y__title">Landmark roles</p>
+          <p class="blau-docs-a11y__body">Uses <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> with <code>aria-labelledby</code> pointing to each section heading.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <footer class="blau-docs-footer" role="contentinfo">
+      <p>Blau v1.0 - Design System by Saúl Ossorio</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- System utilities: accordion, mobile nav, scroll, active nav highlighting -->
+<script src="scripts/utils.js"></script>
+<!-- Motion demo replays + brand dot easter egg -->
+<script src="scripts/animations.js"></script>
+<!-- Theme switching (light / dark / high-contrast) -->
+<script src="scripts/theme.js"></script>
+
+</body>
+</html>

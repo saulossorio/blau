@@ -1,0 +1,187 @@
+============================================================
+BLAU — Design System Structure
+Version 1.0 | Saúl Ossorio
+Last updated: 2026-05-17
+============================================================
+
+blau/
+│
+├── index.html                      # Main design system documentation page
+│                                   # All components rendered with live BEM classes
+│                                   # Includes dark mode toggle + high-contrast button in sidebar
+│
+├── README.md                       # Project overview and quick-start guide
+├── structure.txt                   # Original reference structure (read-only)
+├── blau-structure.txt              # This file — current documented structure
+│
+│
+├── styles/                         # ── STYLESHEETS ──
+│   ├── variables.css               # All CSS custom properties (design tokens)
+│   │                               # Themes: :root (light), dark, high-contrast, dark-high-contrast
+│   │                               # 14 color tokens + 2 font tokens + 2 layout tokens per theme
+│   └── global.css                  # All component styles, BEM naming convention
+│                                   # Sections: reset, a11y, layout, sidebar, mobile-header,
+│                                   # sections, hero, dot, social, scroll-hint, work, btn,
+│                                   # accordion, list, skills, contact, footer, modal,
+│                                   # fade, card, lang, toggle, a11y-btn, responsive
+│
+│
+├── docs/                           # ── DOCUMENTATION CHROME ──
+│   └── docs.css                    # Styles specific to index.html (the docs page)
+│                                   # All .blau-docs-* classes: swatches, demo boxes,
+│                                   # spacing bars, type scale, atomic, motion, a11y,
+│                                   # sidebar chrome, mobile header, footer, tag
+│
+│
+├── scripts/                        # ── JAVASCRIPT ──
+│   ├── theme.js                    # Theme switching: toggleDark(), toggleHighContrast(),
+│   │                               #   toggleAccessible()
+│   │                               # Public API: window.blauTheme
+│   │                               # localStorage keys: 'blau-dark', 'blau-hc', 'blau-a11y'
+│   │                               # Default: light. Dark + HC toggles work independently.
+│   ├── utils.js                    # UI interactivity: toggleAcc(), toggleDsBurger(),
+│   │                               # closeDsNav(), scrollDS(), updateDsNav()
+│   │                               # BEM state classes: .is-open, .is-active
+│   └── animations.js              # Motion demos (replay functions) + brand dot easter egg
+│                                   # replayFadeUp, replayDotPop, replayLine,
+│                                   # replayBounce, replayNameReveal
+│
+│
+├── components/                     # ── COMPONENT LIBRARY ──
+│   │                               # Each folder: standalone HTML demo + CSS reference doc
+│   │                               # HTML files are full pages (load shared stylesheets)
+│   │
+│   ├── accordion/
+│   │   ├── accordion.html          # Demo: 3 accordion items (open/closed states)
+│   │   └── accordion.css           # Reference: .blau-accordion, __trigger, __arrow, __label, __body, __content
+│   │
+│   ├── button/
+│   │   ├── button.html             # Demo: ghost pills + primary CTA pills
+│   │   └── button.css              # Reference: .blau-btn, .blau-btn--primary
+│   │
+│   ├── card/
+│   │   ├── card.html               # Demo: default, featured, coming-soon cards
+│   │   └── card.css                # Reference: .blau-card, __header, __title, __arrow, __desc, __badge
+│   │
+│   ├── modal/
+│   │   ├── modal.html              # Demo: lightbox with carousel controls
+│   │   └── modal.css               # Reference: .blau-modal, __inner, __close, .blau-carousel__*
+│   │
+│   ├── pill/
+│   │   ├── pill.html               # Demo: tags, project labels, eyebrow text
+│   │   └── pill.css                # Reference: .blau-tag, .blau-tag--project, .blau-eyebrow
+│   │
+│   ├── social-tag/
+│   │   ├── social-tag.html         # Demo: social link pills with icons
+│   │   └── social-tag.css          # Reference: .blau-social
+│   │
+│   └── toggle/
+│       ├── toggle.html             # Demo: dark mode toggle + high-contrast button + states
+│       └── toggle.css              # Reference: .blau-toggle, __track, __thumb, __label
+│                                   #            .blau-a11y-btn, .blau-a11y-btn--active
+│
+│
+├── examples/                       # ── FULL PAGE EXAMPLES ──
+│   │                               # Real pages combining multiple Blau components
+│   │
+│   ├── form.html                   # Contact form with inputs, tags, and buttons
+│   ├── dashboard.html              # Stats cards, skills list, accordion, theme toggle
+│   └── landing.html                # Hero section, project cards, social tags, CTAs
+│
+│
+├── tokens/                         # ── DESIGN TOKENS (JSON) ──
+│   │                               # Machine-readable tokens for design handoff
+│   │
+│   ├── core/
+│   │   ├── colors.json             # Base color palette (hex values)
+│   │   ├── spacing.json            # Spacing scale (rem values)
+│   │   └── typography.json         # Font families, sizes, weights, line-heights
+│   │
+│   ├── semantic/
+│   │   └── colors.json             # Purpose-based color mapping (bg, text, accent, border)
+│   │
+│   └── themes/
+│       ├── light.json              # Light theme token overrides
+│       ├── dark.json               # Dark theme token overrides
+│       ├── high-contrast.json      # High-contrast theme token overrides
+│       └── dark-high-contrast.json # Dark + high-contrast combined theme
+│
+│
+├── design/                         # ── DESIGN ASSETS ──
+│   └── figma-link.txt              # Placeholder for Figma file URL
+│
+│
+├── src/                            # ── SOURCE ASSETS ──
+│   ├── favicon/
+│   │   ├── favicon.ico
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   └── README.txt
+│   └── images/                     # Project images (currently empty)
+│
+│
+└── legacy/                         # ── LEGACY FILES (archived) ──
+    ├── style.css                   # Original monolithic portfolio styles (1032 lines)
+    ├── blau.css                    # Original docs chrome styles (647 lines)
+    └── blau.js                     # Original monolithic scripts (231 lines)
+
+
+============================================================
+BEM NAMING CONVENTION
+============================================================
+
+Pattern: .blau-{block}__{element}--{modifier}
+
+Blocks:
+  blau-sidebar        blau-mobile-header    blau-burger
+  blau-mobile-nav     blau-section          blau-hero
+  blau-dot            blau-social           blau-scroll-hint
+  blau-work           blau-btn              blau-accordion
+  blau-list           blau-skills           blau-contact
+  blau-footer         blau-modal            blau-carousel
+  blau-fade           blau-card             blau-lang
+  blau-toggle         blau-a11y-btn         blau-tag
+  blau-a11y-panel     blau-a11y-dropdown    blau-eyebrow
+  blau-heading        blau-divider          blau-categories
+  blau-layout         blau-skip-link
+
+State classes (is- prefix):
+  .is-open            .is-active            .is-visible
+
+Modifiers:
+  --primary           --featured            --soon
+  --hero              --nav                 --ready
+  --clicked           --rage                --compact
+  --slim              --project             --mobile
+  --prev              --next                --active
+
+
+============================================================
+THEME SYSTEM
+============================================================
+
+Four theme states (both toggles work independently):
+
+  Dark OFF + HC OFF  →  light (default, no data-theme attribute)
+  Dark ON  + HC OFF  →  [data-theme="dark"]
+  Dark OFF + HC ON   →  [data-theme="high-contrast"]
+  Dark ON  + HC ON   →  [data-theme="dark-high-contrast"]
+
+Switching:
+  blauTheme.toggleDark()           → toggles dark mode on/off
+  blauTheme.toggleHighContrast()   → toggles high-contrast on/off
+  blauTheme.toggleAccessible()     → toggles large-text (readable) mode on/off
+
+Persistence: localStorage keys 'blau-dark', 'blau-hc', 'blau-a11y'
+
+UI Controls:
+  Desktop: .blau-a11y-panel (collapsible panel at sidebar bottom)
+    Trigger: accessibility icon button → expands/collapses body
+    Body: 3× .blau-toggle (Dark mode, High contrast, Large text)
+
+  Mobile:  .blau-a11y-dropdown (floating panel from header icon)
+    Trigger: #mobA11yBtn (accessibility icon in mobile header)
+    Body: 3× .blau-toggle (same controls as sidebar)

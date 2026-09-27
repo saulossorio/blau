@@ -1,0 +1,16 @@
+{
+  "$description": "Dark high-contrast theme. Applied via [data-theme='dark-high-contrast'] when both dark mode and high-contrast are enabled.",
+  "--white":        "#000000",
+  "--bg":           "#000000",
+  "--bg-subtle":    "#0a0a0a",
+  "--text":         "#ffffff",
+  "--mid":          "#e0e0e0",
+  "--light":        "#bbbbbb",
+  "--blue":         "#5bb8ff",
+  "--blue-hover":   "#8acfff",
+  "--blue-tint":    "rgba(91, 184, 255, 0.15)",
+  "--border":       "#ffffff",
+  "--border-hover": "#ffffff",
+  "--tag-bg":       "#1a1a1a",
+  "--tag-bg-hover": "#252525"
+}

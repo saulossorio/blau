@@ -1,0 +1,14 @@
+/*
+  Social tag styles are defined in styles/global.css under section 9.
+  BEM classes:
+
+  .blau-social         — pill-shaped link with icon + label
+  .blau-social:hover   — border/bg darken, opacity 1
+  .blau-social svg     — inline icon (14x14, currentColor fill)
+
+  Usage:
+    <a class="blau-social" href="#" target="_blank" rel="noopener noreferrer">
+      <svg ...>...</svg>
+      LinkedIn
+    </a>
+*/

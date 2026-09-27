@@ -1,0 +1,13 @@
+/*
+  Tag/Label styles are defined in styles/global.css under section 6.
+  BEM classes:
+
+  .blau-tag            — generic blue-tint label (inline-block, uppercase)
+  .blau-tag--project   — project type variant (identical styling, semantic distinction)
+  .blau-eyebrow        — uppercase section marker (lighter color, no background)
+
+  Usage:
+    <span class="blau-tag">Label</span>
+    <span class="blau-tag--project">UI Design</span>
+    <span class="blau-eyebrow">Section Title</span>
+*/

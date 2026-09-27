@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Button / Pill — Blau Components</title>
+  <link rel="stylesheet" href="../../styles/variables.css"/>
+  <link rel="stylesheet" href="../../styles/global.css"/>
+  <style>
+    body { padding: 3rem; max-width: 640px; margin: 0 auto; }
+    section { margin-bottom: 2.5rem; }
+    h1 { font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 2rem; }
+    h2 { font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--light); margin-bottom: 1rem; }
+    .row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Button / Pill</h1>
+
+  <section>
+    <h2>Default (ghost)</h2>
+    <div class="row">
+      <button class="blau-btn" type="button">Label</button>
+      <a class="blau-btn" href="#">View project</a>
+      <a class="blau-btn" href="#" aria-label="Visit LinkedIn" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Primary (circle-reveal fill on hover)</h2>
+    <div class="row">
+      <a class="blau-btn blau-btn--primary" href="#">Get in touch</a>
+      <a class="blau-btn blau-btn--primary" href="#">View case study</a>
+    </div>
+  </section>
+
+</body>
+</html>

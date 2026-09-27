@@ -1,0 +1,72 @@
+/* ============================================================
+   BLAU — Accordion Component
+   Standalone copy for reference. In production this is already
+   included in styles/global.css (section 13).
+
+   Requires: styles/variables.css
+   ============================================================ */
+
+.accordion-section {
+  border-top: 1px solid var(--border);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--font);
+  text-align: left;
+  transition: border-color .2s;
+}
+
+.accordion-trigger.open {
+  border-bottom-color: var(--border);
+}
+
+.accordion-trigger:hover .acc-label {
+  color: var(--blue);
+}
+
+.acc-label {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color .2s;
+  flex: 1;
+}
+
+.acc-arrow {
+  flex-shrink: 0;
+  color: var(--light);
+  transition: transform .3s, color .2s;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  font-family: var(--font);
+}
+
+.acc-arrow svg { display: block; }
+
+.accordion-trigger.open .acc-arrow {
+  transform: rotate(90deg);
+  color: var(--blue);
+}
+
+.accordion-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .45s ease;
+}
+
+.accordion-body.open {
+  max-height: 9999px;
+}
+
+.accordion-inner {
+  padding-bottom: 1.5rem;
+}
